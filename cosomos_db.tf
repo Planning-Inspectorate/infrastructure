@@ -27,7 +27,7 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 
   geo_location {
-    location          = "UK West"
+    location          = "UK south"
     failover_priority = 1
   }
 
