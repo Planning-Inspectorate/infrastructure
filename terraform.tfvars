@@ -1,6 +1,6 @@
 resource_group_name           = "learning2"
-business_division             = "sap"
-resource_group_location       = "UK SOUTH"
+business_division             = "pins"
+resource_group_location       = "UK south"
 app_service_name1             = "appeal-document-service-api"
 app_service_name2             = "appeal-service-api"
 app_service_name3             = "lpa-questionnaire"
