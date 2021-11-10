@@ -2,7 +2,7 @@ data "azurerm_client_config" "current" {}
 
 data "azurerm_key_vault" "key_vault" {
   name                = var.key_vault_name
-  resource_group_name = "learning"
+  resource_group_name = "pins-uks-vault-dev"
 }
 
 resource "azurerm_key_vault_access_policy" "myapp" {
