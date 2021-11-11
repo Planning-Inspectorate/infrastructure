@@ -17,5 +17,5 @@ resource "azurerm_storage_container" "sasc" {
 resource "azurerm_role_assignment" "role_assignment1" {
   scope                = azurerm_resource_group.rg.id
   role_definition_name = "Contributor"
-  principal_id         = azurerm_app_service.app_service.identity[0].principal_id
+  principal_id         = azurerm_app_service.app_service.identity.0.principal_id
 }
