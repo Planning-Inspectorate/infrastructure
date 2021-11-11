@@ -14,6 +14,7 @@ resource "azurerm_app_service" "app_service3" {
   }
 
   app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"     = azurerm_application_insights.appinsights.instrumentation_key
     "ALLOW_APPEAL_REPLY_CREATE"          = "true"
     "APPEAL_REPLY_SERVICE_API_TIMEOUT"   = "10000"
     "APPEAL_REPLY_SERVICE_API_URL"       = "https://dev-appealsreplyserviceapi.azurewebsites.net"
