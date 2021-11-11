@@ -14,6 +14,7 @@ resource "azurerm_app_service" "app_service5" {
   }
 
   app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_URL"                                          = "https://dev-appealsserviceapi.azurewebsites.net/api/v1"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
     "DOCKER_REGISTRY_SERVER_URL"                                       = "https://pinscommonukscontainers3887default.azurecr.io"
