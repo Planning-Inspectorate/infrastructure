@@ -14,6 +14,7 @@ resource "azurerm_app_service" "app_service2" {
   }
 
   app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                                              = azurerm_application_insights.appinsights.instrumentation_key
     "APP_APPEALS_BASE_URL"                                                        = "https://dev-formswebappserviceapi.azurewebsites.net",
     "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = "https://dev-lpaquestionnaireserviceapi.azurewebsites.net"
     "APPEALS_SERVICE_API_URL"                                                     = "https://dev-appealsserviceapi.azurewebsites.net/api/v1"
