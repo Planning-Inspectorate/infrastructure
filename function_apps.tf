@@ -5,6 +5,9 @@ resource "azurerm_function_app" "fa1" {
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"     = azurerm_application_insights.appinsights.instrumentation_key
+  }
 }
 
 
@@ -15,6 +18,9 @@ resource "azurerm_function_app" "fa2" {
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"     = azurerm_application_insights.appinsights.instrumentation_key
+  }
 }
 
 resource "azurerm_function_app" "fa3" {
@@ -24,6 +30,9 @@ resource "azurerm_function_app" "fa3" {
   app_service_plan_id        = azurerm_app_service_plan.asp.id
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"     = azurerm_application_insights.appinsights.instrumentation_key
+  }
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect4" {
