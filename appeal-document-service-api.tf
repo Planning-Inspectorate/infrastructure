@@ -14,7 +14,7 @@ resource "azurerm_app_service" "app_service" {
   }
 
   app_settings = {
-    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = "70d6e1cf-c440-4460-b4c1-4f1a422c2825"
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsights.instrumentation_key
     "APPINSIGHTS_PROFILERFEATURE_VERSION"             = "disabled"
     "APPINSIGHTS_SNAPSHOTFEATURE_VERSION"             = "disabled"
     "APPLICATIONINSIGHTS_CONFIGURATION_CONTENT"       = ""
