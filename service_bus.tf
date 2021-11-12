@@ -33,7 +33,7 @@ resource "azurerm_servicebus_queue" "queue3" {
   #scope                = azurerm_resource_group.rg.id
   #role_definition_name = "Contributor"
   #principal_id         = azurerm_app_service.app_service5.identity.0.principal_id
-}
+#}
 
 # resource "azurerm_servicebus_namespace_network_rule_set" "networkintegration1" {
 #   namespace_name      = azurerm_servicebus_namespace.service_bus.name
