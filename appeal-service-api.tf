@@ -7,10 +7,9 @@ resource "azurerm_app_service" "app_service2" {
     type = "SystemAssigned"
   }
 
-  site_config {
-    dotnet_framework_version = "v5.0"
-    scm_type                 = "LocalGit"
-
+   site_config {
+    linux_fx_version = "DOCKER|appsvcsample/static-site:latest"
+    always_on        = "true"
   }
 
   app_settings = {
