@@ -8,5 +8,9 @@ resource "azurerm_app_service_plan" "asp" {
     tier = "Standard"
     size = "S1"
   }
+  properties{
+    reserved =true
+  }
+
   tags = local.common_tags
 }
