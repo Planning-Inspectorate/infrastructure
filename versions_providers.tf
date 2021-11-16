@@ -4,6 +4,7 @@ terraform {
     azurerm = {
       version = "~>2.75.0"
     }
+  }
     random = {
       source  = "hashicorp/random"
       version = "~>3.1.0"
@@ -13,7 +14,6 @@ terraform {
     storage_account_name = "pinsappealsinfrastgtest"
     container_name       = "pinsappealsinfracontainertest"
     key                  = "terraform.tfstate"
-  }
   }
 }
 provider "azurerm" {
