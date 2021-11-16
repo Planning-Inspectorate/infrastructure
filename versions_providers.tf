@@ -8,6 +8,12 @@ terraform {
       source  = "hashicorp/random"
       version = "~>3.1.0"
     }
+    backend "azurerm" {
+    resource_group_name  = "pinsappealsterraforminfratest"
+    storage_account_name = "pinsappealsinfrastgtest"
+    container_name       = "pinsappealsinfracontainertest"
+    key                  = "terraform.tfstate"
+  }
   }
 }
 provider "azurerm" {
