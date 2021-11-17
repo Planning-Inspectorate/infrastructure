@@ -6,7 +6,7 @@ resource "azurerm_app_service_plan" "asp" {
   reserved = true
   sku {
     tier = "Premium"
-    size = "P1"
+    size = "P1V3"
   }
   tags = local.common_tags
 }
