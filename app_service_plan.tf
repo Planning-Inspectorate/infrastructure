@@ -5,8 +5,8 @@ resource "azurerm_app_service_plan" "asp" {
   kind = "Linux"
   reserved = true
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier = "Premium"
+    size = "P1"
   }
   tags = local.common_tags
 }

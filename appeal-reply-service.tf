@@ -45,7 +45,21 @@ resource "azurerm_app_service" "app_service5" {
   tags = local.common_tags
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "connect5" {
-  app_service_id = azurerm_app_service.app_service5.id
-  subnet_id      = azurerm_subnet.subnet.id
+# resource "azurerm_app_service_virtual_network_swift_connection" "connect5" {
+#   app_service_id = azurerm_app_service.app_service5.id
+#   subnet_id      = azurerm_subnet.subnet.id
+# }
+
+resource "azurerm_private_endpoint" "privateendpoint2" {
+  name                = "appealreplyserviceendpoint"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  subnet_id           = azurerm_subnet.subnet.id
+
+  private_service_connection {
+    name = "arsconnection"
+    private_connection_resource_id = azurerm_app_service.app_service5.id
+    subresource_names = ["sites"]
+    is_manual_connection = false
+  }
 }
