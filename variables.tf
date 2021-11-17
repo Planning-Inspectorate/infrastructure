@@ -74,9 +74,9 @@ variable "Service_bus_name" {
 }
 
 
-variable "vnetname" {
-  description = "Name of the vnet"
-}
+# variable "vnetname" {
+#   description = "Name of the vnet"
+# }
 
 variable "subnetname" {
   description = "Name of the subnet"
