@@ -1,4 +1,4 @@
-resource_group_name           = "pins-appeals-dev-test-5"
+resource_group_name           = "pins-appeals-dev-test-6"
 business_division             = "pins"
 resource_group_location       = "UK south"
 app_service_name1             = "appeals-document-service-api-test"
