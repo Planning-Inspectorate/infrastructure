@@ -19,7 +19,7 @@ resource "azurerm_app_service" "app_service6" {
   tags = local.common_tags
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "connect6" {
+resource "azurerm_app_service_virtual_network_swift_connection" "connect8" {
   app_service_id = azurerm_app_service.app_service6.id
   subnet_id      = azurerm_subnet.subnet.id
 }
