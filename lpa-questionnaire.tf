@@ -56,21 +56,21 @@ resource "azurerm_app_service" "app_service3" {
 #   //records             = ["10.0.180.17"]
 # }
 
-# resource "azurerm_app_service_virtual_network_swift_connection" "connect3" {
-#   app_service_id = azurerm_app_service.app_service3.id
-#   subnet_id      = azurerm_subnet.subnet.id
-# }
-
-resource "azurerm_private_endpoint" "privateendpoint4" {
-  name                = "lpaquestionnaireendpoint"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  subnet_id           = azurerm_subnet.subnet.id
-
-  private_service_connection {
-    name = "lpaconnection"
-    private_connection_resource_id = azurerm_app_service.app_service3.id
-    subresource_names = ["sites"]
-    is_manual_connection = false
-  }
+resource "azurerm_app_service_virtual_network_swift_connection" "connect3" {
+  app_service_id = azurerm_app_service.app_service3.id
+  subnet_id      = azurerm_subnet.subnet.id
 }
+
+# resource "azurerm_private_endpoint" "privateendpoint4" {
+#   name                = "lpaquestionnaireendpoint"
+#   location            = azurerm_resource_group.rg.location
+#   resource_group_name = azurerm_resource_group.rg.name
+#   subnet_id           = azurerm_subnet.subnet.id
+
+#   private_service_connection {
+#     name = "lpaconnection"
+#     private_connection_resource_id = azurerm_app_service.app_service3.id
+#     subresource_names = ["sites"]
+#     is_manual_connection = false
+#   }
+# }
