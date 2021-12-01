@@ -24,7 +24,7 @@ resource "azurerm_app_service" "app_service6" {
 #   subnet_id      = azurerm_subnet.subnet.id
 # }
 
-resource "azurerm_private_endpoint" "privateendpoint5" {
+resource "azurerm_private_endpoint" "privateendpoint6"{
   name                = "appealmagiclinkendpoint"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
