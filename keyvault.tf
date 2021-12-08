@@ -61,3 +61,8 @@ resource "azurerm_key_vault_access_policy" "myapp5" {
   ]
 
 }
+
+data "azurerm_key_vault_secret" "docker_registry_url"{
+  name = "DOCKER_REGISTRY_SERVER_URL"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}

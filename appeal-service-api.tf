@@ -19,7 +19,7 @@ resource "azurerm_app_service" "app_service2" {
     "APPEALS_SERVICE_API_URL"                                                     = "https://dev-appealsserviceapi.azurewebsites.net/api/v1"
     "DOCKER_ENABLE_CI"                                                            = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    "DOCKER_REGISTRY_SERVER_URL"                                                  = "https://pinscommonukscontainers3887default.azurecr.io"
+    "DOCKER_REGISTRY_SERVER_URL"                                                  =  Docker_registry_urldata.azurerm_key_vault_secret.docker_registry_url
     "DOCKER_REGISTRY_SERVER_USERNAME"                                             = "pinscommonukscontainers3887default"
     "DOCS_API_PATH"                                                               = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"
