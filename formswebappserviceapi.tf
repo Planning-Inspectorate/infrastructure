@@ -1,4 +1,4 @@
-resource "azurerm_app_service" "app_service2" {
+resource "azurerm_app_service" "app_service7" {
   name                = "${local.resource_name_prefix}-${var.app_service_name7}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -59,7 +59,7 @@ resource "azurerm_app_service" "app_service2" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect9" {
-  app_service_id = azurerm_app_service.app_service2.id
+  app_service_id = azurerm_app_service.app_service7.id
   subnet_id      = azurerm_subnet.subnet.id
 }
 
