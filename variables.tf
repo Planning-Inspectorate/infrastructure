@@ -68,6 +68,10 @@ variable "app_service_name6" {
   description = "Name of the app service5"
 
 }
+variable "app_service_name7" {
+  description = "Name of the app service"
+  
+}
 variable "cosomos_db_name" {
   description = "Name of the db account"
 
