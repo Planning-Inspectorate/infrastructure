@@ -58,7 +58,7 @@ resource "azurerm_app_service" "app_service2" {
   tags = local.common_tags
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "connect2" {
+resource "azurerm_app_service_virtual_network_swift_connection" "connect9" {
   app_service_id = azurerm_app_service.app_service2.id
   subnet_id      = azurerm_subnet.subnet.id
 }
