@@ -14,18 +14,49 @@ resource "azurerm_app_service" "app_service7" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                              = azurerm_application_insights.appinsights.instrumentation_key
-    "APP_APPEALS_BASE_URL"                                                        = "https://dev-formswebappserviceapi.azurewebsites.net",
-    "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = "https://dev-lpaquestionnaireserviceapi.azurewebsites.net"
-    "APPEALS_SERVICE_API_URL"                                                     = "https://dev-appealsserviceapi.azurewebsites.net/api/v1"
+    "APPEALS_SERVICE_API_TIMEOUT"                                                 = "10000"
+    "CLAMAV_HOST"                                                                 = "dev-clamav-test.azurewebsites.net"
+    "APP_APPEALS_BASE_URL"                                                        = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
+    "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
+    "APPEALS_SERVICE_API_URL"                                                     = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
     "DOCKER_ENABLE_CI"                                                            = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
     "DOCKER_REGISTRY_SERVER_URL"                                                  = "https://pinscommonukscontainers3887default.azurecr.io"
     "DOCKER_REGISTRY_SERVER_USERNAME"                                             = "pinscommonukscontainers3887default"
+    "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"
     "DOCS_API_PATH"                                                               = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                                                   = "https://documentserviceapi.azurewebsites.net/api/v1"
+    "DOCUMENTS_SERVICE_API_URL"                                                   = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                                  = "true"
-    "HORIZON_HAS_PUBLISHER_HOST"                                                  = "rabbitmq"
+    "FEATURE_FLAG_GOOGLE_TAG_MANAGER"                                             = "true"
+    "FILE_UPLOAD_DEBUG"                                                           = "true"
+    "FILE_UPLOAD_MAX_FILE_SIZE_BYTES"                                             = "15000000"
+    "FILE_UPLOAD_TMP_PATH"                                                        = "/tmp"
+    "FILE_UPLOAD_USE_TEMP_FILES"                                                  = "true"
+    "GOOGLE_ANALYTICS_ID"                                                         = "G-TZBWMVPTHV"
+    "GOOGLE_TAG_MANAGER_ID"                                                       = "GTM-KZN7XP4"
+    "HOST_URL"                                                                    = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
+    "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"                                    = "YTg7Q~SlAs5VLwW3ebezowaHculFabPqBHArt"
+    "PDF_SERVICE_API_URL"                                                         = "https://pins-dev-pdf-service-api-test7.azurewebsites.net"
+    "PORT"                                                                        = "3000"
+    "SESSION_KEY"                                                                 = "some_secure_key_goes_here"
+    "SESSION_MONGODB_COLLECTION"                                                  = "sessions"
+    "SESSION_MONGODB_DB_NAME"                                                     = "forms-web-app"
+    "SESSION_MONGODB_URL"                                                         = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "SUBDOMAIN_OFFSET"                                                            = "3"
+    "USE_SECURE_SESSION_COOKIES"                                                  = "false"
+    "WEBSITE_HTTPLOGGING_RETENTION_DAYS"                                          = "28"
+    "WEBSITES_ENABLE_APP_SERVICE_STORAGE"                                         = "false"
+
+
+
+
+
+
+
+
+
+/*     "HORIZON_HAS_PUBLISHER_HOST"                                                  = "rabbitmq"
     "HORIZON_HAS_PUBLISHER_HOSTNAME"                                              = ""
     "HORIZON_HAS_PUBLISHER_PASSWORD"                                              = "admin"
     "HORIZON_HAS_PUBLISHER_PORT"                                                  = "5672"
@@ -53,7 +84,7 @@ resource "azurerm_app_service" "app_service7" {
     "SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID"                                   = "c4701212-4b6a-4b55-801a-c86c7dbea54b"
     "SRV_NOTIFY_TEMPLATE_ID"                                                      = "15ed37a9-506c-4845-88ea-95502282a863"
     "WEBSITE_HTTPLOGGING_RETENTION_DAYS"                                          = "28"
-    "WEBSITES_ENABLE_APP_SERVICE_STORAGE"                                         = "false"
+    "WEBSITES_ENABLE_APP_SERVICE_STORAGE"                                         = "false" */
   }
   tags = local.common_tags
 }

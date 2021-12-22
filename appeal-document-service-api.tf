@@ -43,6 +43,7 @@ resource "azurerm_app_service" "app_service" {
     "WEBSITE_HTTPLOGGING_RETENTION_DAYS"              = "28"
     "WEBSITES_CONTAINER_START_TIME_LIMIT"             = "50000"
     "WEBSITES_ENABLE_APP_SERVICE_STORAGE"             = "false"
+    "WEBSITES_PORT"                                   = "4000"
     "XDT_MicrosoftApplicationInsights_BaseExtensions" = "disabled"
     "XDT_MicrosoftApplicationInsights_Mode"           = "default"
     "XDT_MicrosoftApplicationInsights_PreemptSdk"     = "disabled"
