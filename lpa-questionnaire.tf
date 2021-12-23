@@ -37,7 +37,7 @@ resource "azurerm_app_service" "app_service3" {
     "SESSION_KEY"                        = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"         = "sessions"
     "SESSION_MONGODB_DB_NAME"            = "lpa-questionnaire-web-app"
-    "SESSION_MONGODB_URL"                = "mongodb://pins-uks-mongodb-9475-dev:u5K6MuXfg1SjUF2iorpYua1j8xFcvl2x566WF9aMzNZpDYw52HGrZd9djdOLGfEui7WZrnJ1l9En5n1NwgAKjA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "SESSION_MONGODB_URL"                = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
     "USE_SECURE_SESSION_COOKIES"         = "false"
     "WEBSITE_HTTPLOGGING_RETENTION_DAYS" = "28"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE  = "false"

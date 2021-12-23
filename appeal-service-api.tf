@@ -38,7 +38,7 @@ resource "azurerm_app_service" "app_service2" {
     "LPA_TRIALIST_DATA_PATH"                                                      = "/opt/app/data/lpa-trialists.json"
     "MONGODB_AUTO_INDEX"                                                          = "true"
     "MONGODB_DB_NAME"                                                             = "appeals-service-api"
-    "MONGODB_URL"                                                                 = "mongodb://pins-uks-mongodb-9475-dev:u5K6MuXfg1SjUF2iorpYua1j8xFcvl2x566WF9aMzNZpDYw52HGrZd9djdOLGfEui7WZrnJ1l9En5n1NwgAKjA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "MONGODB_URL"                                                                 = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
     "NODE_ENV"                                                                    = "production"
     "SERVER_PORT"                                                                 = "3000"
     "SERVER_SHOW_ERRORS"                                                          = "true"
