@@ -70,7 +70,7 @@ variable "app_service_name6" {
 }
 variable "app_service_name7" {
   description = "Name of the app service"
-  
+
 }
 variable "cosomos_db_name" {
   description = "Name of the db account"
@@ -94,12 +94,12 @@ variable "functionapp1" {
   description = "Name of the function app"
 }
 
-variable "functionapp2" {
-  description = "Name of the function app2"
-}
+# variable "functionapp2" {
+#   description = "Name of the function app2"
+# }
 
 
-variable "functionapp3" {
-  description = "Name of the function app2"
-}
+# variable "functionapp3" {
+#   description = "Name of the function app2"
+# }
 

@@ -7,7 +7,7 @@ resource "azurerm_app_service" "app_service" {
     type = "SystemAssigned"
   }
 
-   site_config {
+  site_config {
     linux_fx_version = "DOCKER|appsvcsample/static-site:latest"
     always_on        = "true"
   }

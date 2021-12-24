@@ -1,7 +1,7 @@
 data "azurerm_virtual_network" "vnet" {
-  name = "pins-uks-network-dev"
+  name                = "pins-uks-network-dev"
   resource_group_name = "pins-uks-network-dev"
-  
+
 }
 
 resource "azurerm_subnet" "subnet" {
