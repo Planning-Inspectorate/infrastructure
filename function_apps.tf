@@ -8,7 +8,7 @@ resource "azurerm_function_app" "fa1" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                           = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_URL"                                      = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
-    "APPLICATIONINSIGHTS_CONNECTION_STRING"                    = "InstrumentationKey=70d6e1cf-c440-4460-b4c1-4f1a422c2825;IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
+    # "APPLICATIONINSIGHTS_CONNECTION_STRING"                    = "InstrumentationKey=70d6e1cf-c440-4460-b4c1-4f1a422c2825;IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
     # "AzureWebJobs.horizon-householder-appeal-publish.Disabled" = "0"
     # "AzureWebJobs.sql-householder-appeal-publish.Disabled"     = "0"
     # "AzureWebJobs.sql-householder-lpa-publish.Disabled"        = "0"
