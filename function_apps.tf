@@ -60,10 +60,10 @@ resource "azurerm_function_app" "fa1" {
 #   }
 # }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "connect4" {
-  app_service_id = azurerm_function_app.fa1.id
-  subnet_id      = azurerm_subnet.subnet.id
-}
+# resource "azurerm_app_service_virtual_network_swift_connection" "connect4" {
+#   app_service_id = azurerm_function_app.fa1.id
+#   subnet_id      = azurerm_subnet.subnet.id
+# }
 
 # resource "azurerm_app_service_virtual_network_swift_connection" "connect6" {
 #   app_service_id = azurerm_function_app.fa2.id
