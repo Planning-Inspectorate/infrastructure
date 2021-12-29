@@ -6,14 +6,24 @@ resource "azurerm_virtual_network" "Vnet" {
 }
 
 resource "azurerm_subnet" "AppSubnets" {
-  name = "web" # do not rename
-  address_prefixes = [var.subnet_web]
+  name                 = "web" # do not rename
+  address_prefixes     = [var.subnet_web]
   virtual_network_name = azurerm_virtual_network.Vnet.name
   resource_group_name  = azurerm_resource_group.AppSrvRG.name
+
+  delegation {
+    name = "vnet-delegation"
+
+    service_delegation {
+      name    = "Microsoft.Web/serverFarms"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+    }
+  }
+
 }
 resource "azurerm_subnet" "gateway-subnet" {
-  name = "GatewaySubnet" # do not rename
-  address_prefixes = [var.gatewaysubnet]
+  name                 = "GatewaySubnet" # do not rename
+  address_prefixes     = [var.gatewaysubnet]
   virtual_network_name = azurerm_virtual_network.Vnet.name
   resource_group_name  = azurerm_resource_group.AppSrvRG.name
 }

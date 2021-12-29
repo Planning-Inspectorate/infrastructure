@@ -1,0 +1,10 @@
+variable "ResourceGroup" {}
+variable "Location" {}
+variable "KeyVaultName" {}
+variable "kv-sku-name" {}
+variable "secret_role_name" {}
+variable "role_definition_name" {}
+variable "SitePipKey" {}
+variable "SitePipValue" {}
+variable "VpnIpsecKey" {}
+variable "VpnIpsecValue" {}
