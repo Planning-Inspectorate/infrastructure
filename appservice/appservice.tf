@@ -31,9 +31,9 @@ resource "azurerm_app_service" "webapp" {
 
 
     # Settings for private Container Registires  
-    DOCKER_REGISTRY_SERVER_URL      = "https://registry.hub.docker.com/library/nginx"
-    DOCKER_REGISTRY_SERVER_USERNAME = "hello"
-    DOCKER_REGISTRY_SERVER_PASSWORD = "hello"
+    DOCKER_REGISTRY_SERVER_URL      = var.DockerRegUrl
+    DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
+    DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
 
   }
 

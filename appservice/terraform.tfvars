@@ -11,8 +11,11 @@ AppSubnets = {
 subnet_web    = "10.4.0.0/24"
 gatewaysubnet = "10.4.1.0/27"
 AppSrvPlan    = "AppService"
-KeyVaultName  = "pins-uks-vault-appdev1"
-KeyVaultRG    = "vault"
+
+DockerRegUrl = "https://registry.hub.docker.com/library/nginx"
+
+KeyVaultName  = "pins-uks-vault-appln-dev"
+KeyVaultRG    = "pins-uks-vault-dev"
 SitePip      = "sitepipKey"
 VpnIpsec     = "IpSecKey"
 
