@@ -15,7 +15,7 @@ AppSrvPlan    = "AppService"
 DockerRegUrl = "https://registry.hub.docker.com/library/nginx"
 
 KeyVaultName  = "pins-uks-vault-appln-dev"
-KeyVaultRG    = "pins-uks-vault-appln-321"
+KeyVaultRG    = "pins-uks-vault-dev"
 #SitePip      = "sitepipKey"
 #VpnIpsec     = "IpSecKey"
 
