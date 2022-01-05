@@ -18,11 +18,11 @@ data "azurerm_key_vault_secret" "vpn-ipsec" {
 }
 
 data "azurerm_key_vault_secret" "DockerUserName" {
-  name         = var.DockerUserName
+  name         = "DockerUserName"
   key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "DockerUserPass" {
-  name         = var.DockerUserPass
+  name         = "DockerUserPass"
   key_vault_id = data.azurerm_key_vault.KVault.id
 }
