@@ -22,3 +22,5 @@ variable "SitePip" {}
 variable "VpnIpsec" {}
 
 variable "DockerRegUrl" {}
+variable "DockerUserName" {}
+variable "DockerUserPass" {}
