@@ -18,8 +18,8 @@ variable "gatewaysubnet" {}
 
 variable "KeyVaultRG" {}
 variable "KeyVaultName" {}
-variable "SitePip" {}
-variable "VpnIpsec" {}
+#variable "SitePip" {}
+#variable "VpnIpsec" {}
 
 variable "DockerRegUrl" {}
 # variable "DockerUserName" {}
