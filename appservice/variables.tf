@@ -22,5 +22,7 @@ variable "KeyVaultName" {}
 #variable "VpnIpsec" {}
 
 variable "DockerRegUrl" {}
+variable "dockerusername" {}
+variable "dockeruserpass" {}
 # variable "DockerUserName" {}
 # variable "DockerUserPass" {}
