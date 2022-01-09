@@ -6,9 +6,8 @@ variable "AppSubnets" {
   type = map(any)
 }
 variable "AppSrvPlan" {}
-variable "subnet_web" {
-
-}
+variable "ApiSrvPlan" {}
+variable "subnet_web" {}
 variable "gatewaysubnet" {}
 
 # Key Vault test variables

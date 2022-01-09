@@ -10,11 +10,9 @@ AppSubnets = {
 
 subnet_web    = "10.4.0.0/24"
 gatewaysubnet = "10.4.1.0/27"
-AppSrvPlan    = "AppService"
+AppSrvPlan    = "WebAppService"
 
-DockerRegUrl = "https://registry.hub.docker.com/library/nginx"
-dockerusername = "rehanann"
-dockeruserpass = "changeme321"
+ApiSrvPlan    = "ApiAppService"
 
 KeyVaultName  = "pins-uks-vault-appln-dev"
 KeyVaultRG    = "pins-uks-vault-dev"

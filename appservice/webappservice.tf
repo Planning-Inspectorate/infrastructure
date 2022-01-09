@@ -19,36 +19,41 @@ resource "azurerm_app_service_plan" "AppSrvPlan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "pinsmywebapp"
+  name                = "pinswebapp"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   app_service_plan_id = azurerm_app_service_plan.AppSrvPlan.id
 
   # Do not attach Storage by default
   app_settings = {
-    # WEBSITE_VNET_ROUTE_ALL = true
-    WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-
-
-    # Settings for private Container Registires  
-    DOCKER_REGISTRY_SERVER_URL      = var.DockerRegUrl
-    DOCKER_REGISTRY_SERVER_USERNAME = var.dockerusername
-    DOCKER_REGISTRY_SERVER_PASSWORD = var.dockeruserpass
-
+    APPINSIGHTS_INSTRUMENTATIONKEY  = azurerm_application_insights.webinsigts.instrumentation_key
+    APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey="${azurerm_application_insights.webinsigts.instrumentation_key}";IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/
+    ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
+    DOCKER_REGISTRY_SERVER_URL      = "pinscommonukscontainers3887default.azurecr.io/applications-forms-web-app:latest"
+    DOCKER_REGISTRY_SERVER_USERNAME = "pinscommonukscontainers3887default"
+    DOCKER_REGISTRY_SERVER_PASSWORD = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
+    APPLICATIONS_SERVICE_API_URL    = "https://applications-service-api.azurewebsites.net"
+    APPLICATIONS_SERVICE_API_TIMEOUT  = "10000"
+    HOST_URL  = "https://applications-service-web-app.azurewebsites.net"
+    SESSION_KEY = "some_key"
+    SUBDOMAIN_OFFSET  = "3"
+    USE_SECURE_SESSION_COOKIES  = "false"
+    WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "3"
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+    XDT_MicrosoftApplicationInsights_Mode = "default"
   }
 
   # Configure Docker Image to load on start
   site_config {
-    linux_fx_version = "DOCKER|nginx:latest"
+    linux_fx_version = "DOCKER|appsvcsample/static-site:latest"
     always_on        = "true"
-    #ip_restriction {
-    #  virtual_network_subnet_id = azurerm_virtual_network.Vnet.id
-    #}
   }
 
   identity {
     type = "SystemAssigned"
   }
+
+  depends_on = [azurerm_application_insights.webinsigts]
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "webswiftnetwork" {
