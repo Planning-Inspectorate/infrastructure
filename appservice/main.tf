@@ -17,13 +17,13 @@ resource "azurerm_resource_group" "AppSrvRG" {
 # }
 
 
-resource "azurerm_public_ip" "localgateway" {
-  name                = "acceptanceTestPublicIp2"
-  resource_group_name = azurerm_resource_group.AppSrvRG.name
-  location            = azurerm_resource_group.AppSrvRG.location
-  allocation_method   = "Dynamic"
+#resource "azurerm_public_ip" "localgateway" {
+#  name                = "acceptanceTestPublicIp2"
+#  resource_group_name = azurerm_resource_group.AppSrvRG.name
+#  location            = azurerm_resource_group.AppSrvRG.location
+#  allocation_method   = "Dynamic"
 
-}
+#}
 
 
 
