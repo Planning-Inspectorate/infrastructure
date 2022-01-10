@@ -25,7 +25,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   # private_ip_address_enabled = true
 
   ip_configuration {
-    public_ip_address_id          = azurerm_local_network_gateway.home.ip_address
+    public_ip_address_id          = "51.140.98.157"
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.gateway-subnet.id
   }
