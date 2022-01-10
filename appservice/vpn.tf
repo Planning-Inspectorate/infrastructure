@@ -25,7 +25,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   # private_ip_address_enabled = true
 
   ip_configuration {
-    public_ip_address_id          = "51.140.98.157"
+    public_ip_address_id          = azurerm_public_ip.apppip2.ip_address
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.gateway-subnet.id
   }
@@ -34,7 +34,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
 #  #   vpn_client_protocols = "IkeV2"
 #  # }
   
-  depends_on = [azurerm_local_network_gateway.home]
+  depends_on = [azurerm_public_ip.apppip2]
 }
 
 
