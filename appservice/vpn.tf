@@ -43,7 +43,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
 
 
 resource "azurerm_virtual_network_gateway_connection" "onpremise" {
-  name                = "onpremise"
+  name                = "uks-applications-nsip-vpn"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
 
