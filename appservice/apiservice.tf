@@ -16,7 +16,7 @@ resource "azurerm_app_service" "apiapp" {
   app_settings = {
     APP_APPLICATIONS_BASE_URL  = "https://applications-service-web-app.azurewebsites.net"
     APPINSIGHTS_INSTRUMENTATIONKEY  = azurerm_application_insights.apiinsigts.instrumentation_key
-    APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey="${azurerm_application_insights.apiinsigts.instrumentation_key}";IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/
+    APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=azurerm_application_insights.apiinsigts.instrumentation_key;IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/
     ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
     DOCKER_REGISTRY_SERVER_URL      = "https://pinscommonukscontainers3887default.azurecr.io"
     DOCKER_REGISTRY_SERVER_USERNAME = "pinscommonukscontainers3887default"
