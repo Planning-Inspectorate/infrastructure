@@ -49,7 +49,7 @@ resource "azurerm_virtual_network_gateway_connection" "onpremise" {
   type                       = "IPsec"
   virtual_network_gateway_id = azurerm_virtual_network_gateway.vpn-gateway.id
   local_network_gateway_id   = azurerm_local_network_gateway.home.id
-  shared_key                 = data.azurerm_key_vault_secret.vpn-ipsec.value
+  shared_key                 = "secretkey"
   
   depends_on = [azurerm_virtual_network_gateway.vpn-gateway]
 }
