@@ -20,8 +20,8 @@ variable "KeyVaultName" {}
 #variable "SitePip" {}
 #variable "VpnIpsec" {}
 
-variable "DockerRegUrl" {}
-variable "dockerusername" {}
-variable "dockeruserpass" {}
+#variable "DockerRegUrl" {}
+#variable "dockerusername" {}
+#variable "dockeruserpass" {}
 # variable "DockerUserName" {}
 # variable "DockerUserPass" {}
