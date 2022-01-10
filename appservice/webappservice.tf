@@ -19,7 +19,7 @@ resource "azurerm_app_service_plan" "AppSrvPlan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "pinswebapp"
+  name                = "pinswebapppoc"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   app_service_plan_id = azurerm_app_service_plan.AppSrvPlan.id
