@@ -2,11 +2,7 @@ variable "ResourceGroup" {}
 variable "Location" {}
 variable "VnetName" {}
 variable "VnetAddressSpace" {}
-variable "AppSubnets" {
-  type = map(any)
-}
 variable "AppSrvPlan" {}
-variable "ApiSrvPlan" {}
 variable "subnet_web" {}
 variable "gatewaysubnet" {}
 

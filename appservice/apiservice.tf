@@ -1,13 +1,13 @@
 
 resource "azurerm_application_insights" "apiinsigts" {
-  name                = "pinsapiinsights"
+  name                = "applications-service-api"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   application_type    = "web"
 }
 
 resource "azurerm_app_service" "apiapp" {
-  name                = "pinsapiapp"
+  name                = "applications-service-api"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   app_service_plan_id = azurerm_app_service_plan.AppSrvPlan.id
