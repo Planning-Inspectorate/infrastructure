@@ -1,17 +1,27 @@
 terraform {
+  required_version = ">=1.0.0"
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.88.1"
-
+      version = "~>2.75.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "~>3.1.0"
+    }
+  }
+
+  backend "azurerm" {
+    resource_group_name  = "pinsappealsterraforminfratest"
+    storage_account_name = "pinsappealsinfrastgtest"
+    container_name       = "pinsappealsinfracontainertest"
+    key                  = "application.tfstate"
+  }
+}
+provider "azurerm" {
+  features {
   }
 }
 
-provider "azurerm" {
-  features {}
-}
+provider "random" {
 
-# terraform {
-#   backend "azurerm" {}
-# }
+}
