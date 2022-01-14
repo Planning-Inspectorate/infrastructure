@@ -66,3 +66,12 @@ resource "azurerm_key_vault_access_policy" "myapp5" {
 #   name = "DOCKERREGISTRYSERVURsdf"
 #   key_vault_id = data.azurerm_key_vault.key_vault.id
 # }
+
+data "azurerm_key_vault_secret" "example" {
+  name         = "mongodb-connection-url"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}
+
+output "secret_value" {
+  value = data.azurerm_key_vault_secret.example.value
+}
