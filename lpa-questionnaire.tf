@@ -33,7 +33,7 @@ resource "azurerm_app_service" "app_service3" {
     "HOST_URL"                                 = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
     "JWT_SIGNING_KEY"                          = "QeThWmZq4t7w!z$C&F)J@NcRfUjXn2r5"
     "LOGGER_LEVEL"                             = "debug"
-    "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = data.azurerm_key_vault.secret.microsoft-pro-auth-lpa-secret.value
+    "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = data.azurerm_key_vault_secret.microsoft-pro-auth-lpa-secret.value
     "NODE_ENV"                                 = "production"
     "PDF_SERVICE_API_URL"                      = "https://pins-dev-pdf-service-api-test7.azurewebsites.net"
     "PORT"                                     = "3000"
