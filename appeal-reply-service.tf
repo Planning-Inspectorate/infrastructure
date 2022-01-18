@@ -30,7 +30,7 @@ resource "azurerm_app_service" "app_service5" {
     "HORIZON_HAS_PUBLISHER_TRANSPORT"                                  = "tls"
     "HORIZON_HAS_PUBLISHER_USERNAME"                                   = data.azurerm_key_vault_secret.horizon-pub-usr.value
     "LOGGER_LEVEL"                                                     = "info"
-    "MONGODB_DB_NAME"                                                  = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_DB_NAME"                                                  = data.azurerm_key_vault_secret.mongodb-appeals-reply.value
     "MONGODB_URL"                                                      = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                                         = "production"
     "SERVER_PORT"                                                      = "3000"

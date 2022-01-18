@@ -96,14 +96,23 @@ data "azurerm_key_vault_secret" "mongodb-connection-url" {
   name         = "mongodb-connection-url"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
-data "azurerm_key_vault_secret" "sqlpassword" {
-  name         = "sql-password"
+data "azurerm_key_vault_secret" "sql-server-pwd" {
+  name         = "sql-server-pwd"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
-data "azurerm_key_vault_secret" "mongodb-name" {
-  name         = "mongodb-name"
+data "azurerm_key_vault_secret" "mongodb-document-service" {
+  name         = "mongodb-document-service"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
+data "azurerm_key_vault_secret" "mongodb-appeals-reply" {
+  name         = "mongodb-appeals-reply"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}
+data "azurerm_key_vault_secret" "mongodb-appeals-service" {
+  name         = "mongodb-appeals-service"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}
+
 data "azurerm_key_vault_secret" "docker-reg-server-pwd" {
   name         = "docker-reg-server-pwd"
   key_vault_id = data.azurerm_key_vault.key_vault.id

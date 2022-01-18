@@ -19,6 +19,7 @@ resource "azurerm_app_service" "app_service3" {
     "APPEAL_REPLY_SERVICE_API_URL"       = "https://pins-dev-appeal-reply-service-api-test7.azurewebsites.net"
     "APPEALS_SERVICE_API_TIMEOUT"        = "10000"
     "APPEALS_SERVICE_API_URL"            = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
+    "CLAM_AV_HOST"                       = "dev-clamav.azurewebsites.net"
     "DOCKER_CUSTOM_IMAGE_NAME"           = "pinscommonukscontainers3887default.azurecr.io/lpa-questionnaire-web-app"
     "DOCKER_REGISTRY_SERVER_PASSWORD"    = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"         = data.azurerm_key_vault_secret.docker-reg-server-url.value
@@ -30,7 +31,8 @@ resource "azurerm_app_service" "app_service3" {
     "FILE_UPLOAD_TMP_PATH"               = "/tmp"
     "FILE_UPLOAD_USE_TEMP_FILES"         = "true"
     "HOST_URL"                           = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
-    "LOGGER_LEVEL"                       = "info"
+    "JWT_SIGNING_KEY"                    = "QeThWmZq4t7w!z$C&F)J@NcRfUjXn2r5"
+    "LOGGER_LEVEL"                       = "debug"
     "NODE_ENV"                           = "production"
     "PDF_SERVICE_API_URL"                = "https://pins-dev-pdf-service-api-test7.azurewebsites.net"
     "PORT"                               = "3000"

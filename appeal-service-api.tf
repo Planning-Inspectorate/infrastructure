@@ -37,7 +37,7 @@ resource "azurerm_app_service" "app_service2" {
     "LPA_DATA_PATH"                                                               = "/opt/app/data/lpa-list.csv"
     "LPA_TRIALIST_DATA_PATH"                                                      = "/opt/app/data/lpa-trialists.json"
     "MONGODB_AUTO_INDEX"                                                          = "true"
-    "MONGODB_DB_NAME"                                                             = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_DB_NAME"                                                             = data.azurerm_key_vault_secret.mongodb-appeals-service.value
     "MONGODB_URL"                                                                 = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                                                    = "production"
     "SERVER_PORT"                                                                 = "3000"

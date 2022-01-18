@@ -31,7 +31,7 @@ resource "azurerm_app_service" "app_service" {
     "InstrumentationEngine_EXTENSION_VERSION"         = "disabled"
     "LOGGER_LEVEL"                                    = "debug"
     "MONGODB_AUTO_INDEX"                              = "true"
-    "MONGODB_DB_NAME"                                 = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_DB_NAME"                                 = data.azurerm_key_vault_secret.mongodb-document-service.value
     "MONGODB_URL"                                     = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                        = "production"
     "SERVER_PORT"                                     = "4000",

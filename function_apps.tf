@@ -19,7 +19,7 @@ resource "azurerm_function_app" "fa1" {
     "HORIZON_URL"                              = "http://10.0.7.4:8000"
     "SQLSERVER_DATABASE"                       = "backoffice-d-uks-sqldb"
     "SQLSERVER_NAME"                           = "pins-d-uks-sql.database.windows.net"
-    "SQLSERVER_PASSWORD"                       = data.azurerm_key_vault_secret.sqlpassword.value
+    "SQLSERVER_PASSWORD"                       = data.azurerm_key_vault_secret.sql-server-pwd.value
     "SQLSERVER_PORT"                           = "1433"
     "SQLSERVER_USERNAME"                       = data.azurerm_key_vault_secret.sql-server-usr.value
     "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING" = "DefaultEndpointsProtocol=https;AccountName=appealsstoragevcirfs;AccountKey=C5J7BtaIaqyyAlvmOxr0PwWMWPkOVvOXofpGdeqwMaRf1xrm+U/14xddJapMm3o/yIDFpAhDXp7ldULkOP3F/w==;EndpointSuffix=core.windows.net"
