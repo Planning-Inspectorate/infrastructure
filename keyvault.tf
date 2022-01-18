@@ -150,3 +150,4 @@ data "azurerm_key_vault_secret" "microsoft-pro-auth-secret" {
 #   sensitive = true
 # }
 }
+}
