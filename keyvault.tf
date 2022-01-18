@@ -156,6 +156,11 @@ data "azurerm_key_vault_secret" "microsoft-pro-auth-secret" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 
+data "azurerm_key_vault_secret" "microsoft-pro-auth-lpa-secret" {
+  name         = "microsoft-pro-auth-lpa-secret"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}
+
 # output "secret_value" {
 #   value = data.azurerm_key_vault_secret.example.value
 #   sensitive = true

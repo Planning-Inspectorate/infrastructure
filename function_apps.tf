@@ -12,7 +12,7 @@ resource "azurerm_function_app" "fa1" {
     # "AzureWebJobs.horizon-householder-appeal-publish.Disabled" = "0"
     # "AzureWebJobs.sql-householder-appeal-publish.Disabled"     = "0"
     # "AzureWebJobs.sql-householder-lpa-publish.Disabled"        = "0"
-    "AzureWebJobsStorage"                      = "0"
+    "AzureWebJobsStorage"                      = "DefaultEndpointsProtocol=https;AccountName=storageaccountpinsubd42;AccountKey=yOtHScQOX/59dEjgf5+85eYdQSbx3oljQW5n3Rowj4tz41GJExpQmHTX+vywhR0Sm5KZ6zcncWX3bTJ3ixCZNQ==;EndpointSuffix=core.windows.net"
     "DOCUMENT_SERVICE_URL"                     = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "FUNCTIONS_EXTENSION_VERSION"              = "~3"
     "FUNCTIONS_WORKER_RUNTIME"                 = "node"
