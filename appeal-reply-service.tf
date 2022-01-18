@@ -15,23 +15,23 @@ resource "azurerm_app_service" "app_service5" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_URL"                                          = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    "DOCKER_REGISTRY_SERVER_URL"                                       = "https://pinscommonukscontainers3887default.azurecr.io"
-    "DOCKER_REGISTRY_SERVER_USERNAME"                                  = "pinscommonukscontainers3887default"
+    "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                    = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_URL"                                        = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                       = "true"
     "HORIZON_HAS_PUBLISHER_HOST"                                       = "pins-uks-message-queue-dev.servicebus.windows.net"
     "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = "5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = data.azurerm_key_vault_secret.horizon-pub-pwd.value
     "HORIZON_HAS_PUBLISHER_PORT"                                       = "5671"
     "HORIZON_HAS_PUBLISHER_QUEUE"                                      = "horizon-householder-appeal-publish"
     "HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT"                            = "1"
     "HORIZON_HAS_PUBLISHER_TRANSPORT"                                  = "tls"
-    "HORIZON_HAS_PUBLISHER_USERNAME"                                   = "RootManageSharedAccessKey"
+    "HORIZON_HAS_PUBLISHER_USERNAME"                                   = data.azurerm_key_vault_secret.horizon-pub-usr.value
     "LOGGER_LEVEL"                                                     = "info"
-    "MONGODB_DB_NAME"                                                  = "appeal-reply-service-api"
-    "MONGODB_URL"                                                      = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "MONGODB_DB_NAME"                                 = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_URL"                                     = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                                         = "production"
     "SERVER_PORT"                                                      = "3000"
     "SERVER_SHOW_ERRORS"                                               = "true"
@@ -39,12 +39,12 @@ resource "azurerm_app_service" "app_service5" {
     "SQL_LPA_PUBLISHER_ATTEMPT_RECONNECTION"                           = "true"
     "SQL_LPA_PUBLISHER_HOST"                                           = "pins-uks-message-queue-dev.servicebus.windows.net"
     "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "SQL_LPA_PUBLISHER_PASSWORD"                                       = "5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    "SQL_LPA_PUBLISHER_PASSWORD"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-pwd.value
     "SQL_LPA_PUBLISHER_PORT"                                           = "5671"
     "SQL_LPA_PUBLISHER_QUEUE"                                          = "sql-householder-lpa-publish"
     "SQL_LPA_PUBLISHER_RECONNECT_LIMIT"                                = "5"
     "SQL_LPA_PUBLISHER_TRANSPORT"                                      = "tls"
-    "SQL_LPA_PUBLISHER_USERNAME"                                       = "RootManageSharedAccessKey"
+    "SQL_LPA_PUBLISHER_USERNAME"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-usr.value
     "SRV_NOTIFY_BASE_URL"                                              = "https://api.notifications.service.gov.uk"
     "SRV_NOTIFY_EMAIL_REPLYTO_ID_APPEAL_REPLY_SUBMISSION_CONFIRMATION" = "f1e6c8c5-786e-41ca-9086-10b67f31bc86"
     "SRV_NOTIFY_SERVICE_ID"                                            = "c46d894e-d10e-4c46-a467-019576cd906a"

@@ -21,7 +21,7 @@ resource "azurerm_function_app" "fa1" {
     "SQLSERVER_NAME"                           = "pins-d-uks-sql.database.windows.net"
     "SQLSERVER_PASSWORD"                       = data.azurerm_key_vault_secret.sqlpassword.value
     "SQLSERVER_PORT"                           = "1433"
-    "SQLSERVER_USERNAME"                       = "backofficeadmin"
+    "SQLSERVER_USERNAME"                       = data.azurerm_key_vault_secret.sql-server-usr.value
     "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING" = "DefaultEndpointsProtocol=https;AccountName=appealsstoragevcirfs;AccountKey=C5J7BtaIaqyyAlvmOxr0PwWMWPkOVvOXofpGdeqwMaRf1xrm+U/14xddJapMm3o/yIDFpAhDXp7ldULkOP3F/w==;EndpointSuffix=core.windows.net"
     "WEBSITE_CONTENTSHARE"                     = azurerm_storage_share.fileshare.name
     "WEBSITE_ENABLE_SYNC_UPDATE_SITE"          = "true"

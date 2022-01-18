@@ -20,9 +20,9 @@ resource "azurerm_app_service" "app_service7" {
     "APP_LPA_QUESTIONNAIRE_BASE_URL"             = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
     "APPEALS_SERVICE_API_URL"                    = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
     "DOCKER_ENABLE_CI"                           = "true"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"            = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    "DOCKER_REGISTRY_SERVER_URL"                 = "https://pinscommonukscontainers3887default.azurecr.io"
-    "DOCKER_REGISTRY_SERVER_USERNAME"            = "pinscommonukscontainers3887default"
+    "DOCKER_REGISTRY_SERVER_PASSWORD"            = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"                 = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"            = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
     "DOCS_API_PATH"                              = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
@@ -36,13 +36,13 @@ resource "azurerm_app_service" "app_service7" {
     "GOOGLE_ANALYTICS_ID"                        = "G-TZBWMVPTHV"
     "GOOGLE_TAG_MANAGER_ID"                      = "GTM-KZN7XP4"
     "HOST_URL"                                   = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
-    "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"   = "YTg7Q~SlAs5VLwW3ebezowaHculFabPqBHArt"
+    "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"   = data.azurerm_key_vault_secret.microsoft-pro-auth-secret.value
     "PDF_SERVICE_API_URL"                        = "https://pins-dev-pdf-service-api-test7.azurewebsites.net"
     "PORT"                                       = "3000"
     "SESSION_KEY"                                = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"                 = "sessions"
     "SESSION_MONGODB_DB_NAME"                    = "forms-web-app"
-    "SESSION_MONGODB_URL"                        = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "SESSION_MONGODB_URL"                        = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "SUBDOMAIN_OFFSET"                           = "3"
     "USE_SECURE_SESSION_COOKIES"                 = "false"
     "WEBSITE_HTTPLOGGING_RETENTION_DAYS"         = "28"

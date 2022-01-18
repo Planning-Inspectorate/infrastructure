@@ -62,11 +62,11 @@ resource "azurerm_key_vault_access_policy" "myapp5" {
 
 }
 
-data "azurerm_key_vault_secret" "dockerregistryurl" {
-  name         = "DOCKERREGISTRYSERVERURL"
+data "azurerm_key_vault_secret" "docker-reg-server-url" {
+  name         = "docker-reg-server-url"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
-data "azurerm_key_vault_secret" "mongodburl" {
+data "azurerm_key_vault_secret" "mongodb-connection-url" {
   name         = "mongodb-connection-url"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
@@ -103,8 +103,8 @@ data "azurerm_key_vault_secret" "horizon-pub-pwd" {
   name         = "horizon-pub-pwd"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
-data "azurerm_key_vault_secret" "sql-password" {
-  name         = "sql-password"
+data "azurerm_key_vault_secret" "sql-server-usr" {
+  name         = "sql-server-usr"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 data "azurerm_key_vault_secret" "sql-appeals-pub-usr" {
@@ -113,6 +113,11 @@ data "azurerm_key_vault_secret" "sql-appeals-pub-usr" {
 }
 data "azurerm_key_vault_secret" "sql-appeals-pub-pwd" {
   name         = "sql-appeals-pub-pwd"
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+}
+
+data "azurerm_key_vault_secret" "microsoft-pro-auth-secret" {
+  name          = "microsoft-pro-auth-secret"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 

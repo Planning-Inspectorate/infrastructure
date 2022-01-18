@@ -11,9 +11,9 @@ resource "azurerm_app_service" "appservice4" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"          = azurerm_application_insights.appinsights.instrumentation_key
     "DOCKER_ENABLE_CI"                        = "true"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"         = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    "DOCKER_REGISTRY_SERVER_URL"              = "https://pinscommonukscontainers3887default.azurecr.io"
-    "DOCKER_REGISTRY_SERVER_USERNAME"         = "pinscommonukscontainers3887default"
+    "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                           = "/opt/app/api"
     "GOTENBERG_URL"                           = "http://gotenberg:4000"
     "LOGGER_LEVEL"                            = "debug"

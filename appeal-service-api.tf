@@ -18,39 +18,39 @@ resource "azurerm_app_service" "app_service2" {
     "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
     "APPEALS_SERVICE_API_URL"                                                     = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
     "DOCKER_ENABLE_CI"                                                            = "true"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    "DOCKER_REGISTRY_SERVER_URL"                                                  = "https://pinscommonukscontainers3887default.azurecr.io"
-    "DOCKER_REGISTRY_SERVER_USERNAME"                                             = "pinscommonukscontainers3887default"
+    "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"                                                  = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"                                             = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                               = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"
     "DOCUMENTS_SERVICE_API_URL"                                                   = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                                  = "true"
     "HORIZON_HAS_PUBLISHER_HOST"                                                  = "pins-uks-message-queue-dev.servicebus.windows.net"
     "HORIZON_HAS_PUBLISHER_HOSTNAME"                                              = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_PASSWORD"                                              = "5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    "HORIZON_HAS_PUBLISHER_PASSWORD"                                              = data.azurerm_key_vault_secret.horizon-pub-pwd.value
     "HORIZON_HAS_PUBLISHER_PORT"                                                  = "5671"
     "HORIZON_HAS_PUBLISHER_QUEUE"                                                 = "horizon-householder-appeal-publish"
     "HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT"                                       = "5"
     "HORIZON_HAS_PUBLISHER_TRANSPORT"                                             = "tls"
-    HORIZON_HAS_PUBLISHER_USERNAME                                                = "RootManageSharedAccessKey"
+    HORIZON_HAS_PUBLISHER_USERNAME                                                = data.azurerm_key_vault_secret.horizon-pub-usr.value
     "LOGGER_LEVEL"                                                                = "info"
     "LPA_DATA_PATH"                                                               = "/opt/app/data/lpa-list.csv"
     "LPA_TRIALIST_DATA_PATH"                                                      = "/opt/app/data/lpa-trialists.json"
     "MONGODB_AUTO_INDEX"                                                          = "true"
-    "MONGODB_DB_NAME"                                                             = "appeals-service-api"
-    "MONGODB_URL"                                                                 = "mongodb://pins-uks-mongodb-9475-dev:MjTJyWvTBUhVjSztbpx3eySEB7VCGekVPAzdqdWaAuxqwQApkRi1WYldeMFaDTYaQlYuauB31pwrWVBd5d1YDA==@pins-uks-mongodb-9475-dev.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@pins-uks-mongodb-9475-dev@"
+    "MONGODB_DB_NAME"                                                             = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_URL"                                                                 = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                                                    = "production"
     "SERVER_PORT"                                                                 = "3000"
     "SERVER_SHOW_ERRORS"                                                          = "true"
     "SERVER_TERMINATION_GRACE_PERIOD_SECONDS"                                     = "0"
     "SQL_HASAPPEALS_PUBLISHER_ATTEMPT_RECONNECTION"                               = "pins-uks-message-queue-dev.servicebus.windows.net"
     "SQL_HASAPPEALS_PUBLISHER_HOSTNAME"                                           = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "SQL_HASAPPEALS_PUBLISHER_PASSWORD"                                           = "5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    "SQL_HASAPPEALS_PUBLISHER_PASSWORD"                                           = data.azurerm_key_vault_secret.sql-appeals-pub-pwd.value
     "SQL_HASAPPEALS_PUBLISHER_PORT"                                               = "5671"
     "SQL_HASAPPEALS_PUBLISHER_QUEUE"                                              = "sql-householder-appeal-publish"
     "SQL_HASAPPEALS_PUBLISHER_RECONNECT_LIMIT"                                    = "5"
     "SQL_HASAPPEALS_PUBLISHER_TRANSPORT"                                          = "tls"
-    "SQL_HASAPPEALS_PUBLISHER_USERNAME"                                           = "RootManageSharedAccessKey"
+    "SQL_HASAPPEALS_PUBLISHER_USERNAME"                                           = data.azurerm_key_vault_secret.sql-appeals-pub-usr.value
     "SRV_HORIZON_URL"                                                             = ""
     "SRV_NOTIFY_API_KEY"                                                          = "hasserviceapikey-c46d894e-d10e-4c46-a467-019576cd906a-7105b035-9f5b-4207-bce5-a3cbdf10f0da"
     "SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID"    = "72f71441-12bf-4455-afbc-c58f9c72bfbd"
