@@ -64,10 +64,6 @@ variable "app_service_name5" {
   description = "Name of the app service5"
 
 }
-variable "app_service_name6" {
-  description = "Name of the app service5"
-
-}
 variable "app_service_name7" {
   description = "Name of the app service"
 
