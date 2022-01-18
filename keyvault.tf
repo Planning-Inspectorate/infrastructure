@@ -57,7 +57,7 @@ resource "azurerm_key_vault_access_policy" "myapp4" {
 
   secret_permissions = [
     "Get",
-  ]  
+  ]
 
 }
 resource "azurerm_key_vault_access_policy" "myapp5" {
@@ -134,7 +134,7 @@ data "azurerm_key_vault_secret" "sql-server-usr" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 data "azurerm_key_vault_secret" "sql-appeals-pub-usr" {
-  name         = "sql-appeals-pub-user"
+  name         = "sql-appeals-pub-usr"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 data "azurerm_key_vault_secret" "sql-appeals-pub-pwd" {
@@ -143,7 +143,7 @@ data "azurerm_key_vault_secret" "sql-appeals-pub-pwd" {
 }
 
 data "azurerm_key_vault_secret" "microsoft-pro-auth-secret" {
-  name          = "microsoft-pro-auth-secret"
+  name         = "microsoft-pro-auth-secret"
   key_vault_id = data.azurerm_key_vault.key_vault.id
 }
 

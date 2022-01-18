@@ -4,10 +4,10 @@ resource "azurerm_app_service" "appservice4" {
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
-    identity {
+  identity {
     type = "SystemAssigned"
   }
-  
+
   site_config {
     linux_fx_version = "DOCKER|appsvcsample/static-site:latest"
     always_on        = "true"
@@ -15,9 +15,9 @@ resource "azurerm_app_service" "appservice4" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"          = azurerm_application_insights.appinsights.instrumentation_key
     "DOCKER_ENABLE_CI"                        = "true"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
-    "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
+    "DOCKER_REGISTRY_SERVER_PASSWORD"         = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"              = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"         = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                           = "/opt/app/api"
     "GOTENBERG_URL"                           = "http://gotenberg:4000"
     "LOGGER_LEVEL"                            = "debug"

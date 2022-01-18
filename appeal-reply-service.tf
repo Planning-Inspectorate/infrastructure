@@ -15,9 +15,9 @@ resource "azurerm_app_service" "app_service5" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_URL"                                          = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
-    "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
+    "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"                                       = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"                                  = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                    = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_URL"                                        = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                       = "true"
@@ -30,8 +30,8 @@ resource "azurerm_app_service" "app_service5" {
     "HORIZON_HAS_PUBLISHER_TRANSPORT"                                  = "tls"
     "HORIZON_HAS_PUBLISHER_USERNAME"                                   = data.azurerm_key_vault_secret.horizon-pub-usr.value
     "LOGGER_LEVEL"                                                     = "info"
-    "MONGODB_DB_NAME"                                 = data.azurerm_key_vault_secret.mongodb-name.value
-    "MONGODB_URL"                                     = data.azurerm_key_vault_secret.mongodb-connection-url.value
+    "MONGODB_DB_NAME"                                                  = data.azurerm_key_vault_secret.mongodb-name.value
+    "MONGODB_URL"                                                      = data.azurerm_key_vault_secret.mongodb-connection-url.value
     "NODE_ENV"                                                         = "production"
     "SERVER_PORT"                                                      = "3000"
     "SERVER_SHOW_ERRORS"                                               = "true"

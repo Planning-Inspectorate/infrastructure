@@ -20,9 +20,9 @@ resource "azurerm_app_service" "app_service3" {
     "APPEALS_SERVICE_API_TIMEOUT"        = "10000"
     "APPEALS_SERVICE_API_URL"            = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
     "DOCKER_CUSTOM_IMAGE_NAME"           = "pinscommonukscontainers3887default.azurecr.io/lpa-questionnaire-web-app"
-    "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
-    "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
+    "DOCKER_REGISTRY_SERVER_PASSWORD"    = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
+    "DOCKER_REGISTRY_SERVER_URL"         = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_USERNAME"    = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCUMENTS_SERVICE_API_TIMEOUT"      = "10000"
     "DOCUMENTS_SERVICE_API_URL"          = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "FILE_UPLOAD_DEBUG"                  = "false"
