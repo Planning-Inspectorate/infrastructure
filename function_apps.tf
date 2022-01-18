@@ -14,7 +14,7 @@ resource "azurerm_function_app" "fa1" {
     # "AzureWebJobs.sql-householder-lpa-publish.Disabled"        = "0"
     "AzureWebJobsStorage"                      = "0"
     "DOCUMENT_SERVICE_URL"                     = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
-    "FUNCTIONS_EXTENSION_VERSION"              = "~1"
+    "FUNCTIONS_EXTENSION_VERSION"              = "~3"
     "FUNCTIONS_WORKER_RUNTIME"                 = "node"
     "HORIZON_URL"                              = "http://10.0.7.4:8000"
     "SQLSERVER_DATABASE"                       = "backoffice-d-uks-sqldb"

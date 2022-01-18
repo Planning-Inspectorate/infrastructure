@@ -43,7 +43,8 @@ resource "azurerm_app_service" "app_service2" {
     "SERVER_PORT"                                                                 = "3000"
     "SERVER_SHOW_ERRORS"                                                          = "true"
     "SERVER_TERMINATION_GRACE_PERIOD_SECONDS"                                     = "0"
-    "SQL_HASAPPEALS_PUBLISHER_ATTEMPT_RECONNECTION"                               = "pins-uks-message-queue-dev.servicebus.windows.net"
+    "SQL_HASAPPEALS_PUBLISHER_ATTEMPT_RECONNECTION"                               = "true"
+    "SQL_HASAPPEALS_PUBLISHER_HOST"                                               = "pins-uks-message-queue-dev.servicebus.windows.net"
     "SQL_HASAPPEALS_PUBLISHER_HOSTNAME"                                           = "pins-uks-message-queue-dev.servicebus.windows.net"
     "SQL_HASAPPEALS_PUBLISHER_PASSWORD"                                           = data.azurerm_key_vault_secret.sql-appeals-pub-pwd.value
     "SQL_HASAPPEALS_PUBLISHER_PORT"                                               = "5671"
