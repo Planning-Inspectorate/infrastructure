@@ -4,9 +4,9 @@ resource "azurerm_app_service" "appservice4" {
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
-  identity {
-    type = "SystemAssigned"
-  }
+  # identity {
+  #   type = "SystemAssigned"
+  # }
 
   site_config {
     linux_fx_version = "DOCKER|appsvcsample/static-site:latest"
