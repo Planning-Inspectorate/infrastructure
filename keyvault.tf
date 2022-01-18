@@ -46,6 +46,19 @@ resource "azurerm_key_vault_access_policy" "myapp3" {
     "Get",
   ]
 
+resource "azurerm_key_vault_access_policy" "myapp4" {
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_app_service.app_service4.identity[0].principal_id
+
+  key_permissions = [
+    "Get",
+  ]
+
+  secret_permissions = [
+    "Get",
+  ]  
+
 }
 resource "azurerm_key_vault_access_policy" "myapp5" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
@@ -61,7 +74,18 @@ resource "azurerm_key_vault_access_policy" "myapp5" {
   ]
 
 }
+resource "azurerm_key_vault_access_policy" "myapp7" {
+  key_vault_id = data.azurerm_key_vault.key_vault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_app_service.app_service7.identity[0].principal_id
 
+  key_permissions = [
+    "Get",
+  ]
+
+  secret_permissions = [
+    "Get",
+  ]
 data "azurerm_key_vault_secret" "docker-reg-server-url" {
   name         = "docker-reg-server-url"
   key_vault_id = data.azurerm_key_vault.key_vault.id
@@ -125,3 +149,4 @@ data "azurerm_key_vault_secret" "microsoft-pro-auth-secret" {
 #   value = data.azurerm_key_vault_secret.example.value
 #   sensitive = true
 # }
+}
