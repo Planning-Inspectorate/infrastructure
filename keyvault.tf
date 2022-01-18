@@ -49,7 +49,7 @@ resource "azurerm_key_vault_access_policy" "myapp3" {
 resource "azurerm_key_vault_access_policy" "myapp4" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service4.identity[0].principal_id
+  object_id    = azurerm_app_service.appservice4.identity[0].principal_id
 
   key_permissions = [
     "Get",
