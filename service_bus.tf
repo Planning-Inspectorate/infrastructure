@@ -55,8 +55,9 @@ resource "azurerm_servicebus_queue" "queue6" {
 
 resource "azurerm_servicebus_namespace_authorization_rule" "sharedaccesspolicy" {
   name         = "RootManageSharedAccessKey"
-  namespace_id = azurerm_servicebus_namespace.service_bus.id
-
+  # namespace_id = azurerm_servicebus_namespace.service_bus.id
+  resource_group_name = azurerm_resource_group.rg.name
+  namespace_name = azurerm_servicebus_namespace.service_bus.name
   listen = true
   send   = true
   manage = true
