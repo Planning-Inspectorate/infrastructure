@@ -10,8 +10,7 @@ resource "azurerm_local_network_gateway" "home" {
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   location            = azurerm_resource_group.AppSrvRG.location
   gateway_address     = "51.104.42.155"
-  #address_space       = ["10.222.0.0/26"]
-
+  
   depends_on = [azurerm_public_ip.vpnip]
 }
 
@@ -29,12 +28,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
     public_ip_address_id          = azurerm_public_ip.apppip2.id
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.gateway-subnet.id
-  }
-
-#  # vpn_client_configuration {
-#  #   vpn_client_protocols = "IkeV2"
-#  # }
-  
+  }  
   depends_on = [azurerm_public_ip.apppip2]
 }
 
@@ -50,7 +44,7 @@ resource "azurerm_virtual_network_gateway_connection" "onpremise" {
   type                       = "IPsec"
   virtual_network_gateway_id = azurerm_virtual_network_gateway.vpn-gateway.id
   local_network_gateway_id   = azurerm_local_network_gateway.home.id
-  shared_key                 = "secretkey"
+  shared_key                 = data.azurerm_key_vault_secret.VpnConnectionKey.value
   
   depends_on = [azurerm_virtual_network_gateway.vpn-gateway]
 }

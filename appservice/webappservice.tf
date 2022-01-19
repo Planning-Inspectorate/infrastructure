@@ -30,12 +30,12 @@ resource "azurerm_app_service" "webapp" {
     APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.webinsigts.instrumentation_key};IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
     ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
     DOCKER_REGISTRY_SERVER_URL      = "pinscommonukscontainers3887default.azurecr.io/applications-forms-web-app:latest"
-    DOCKER_REGISTRY_SERVER_USERNAME = "pinscommonukscontainers3887default"
-    DOCKER_REGISTRY_SERVER_PASSWORD = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
+    DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
+    DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
     APPLICATIONS_SERVICE_API_URL    = "https://applications-service-api.azurewebsites.net"
     APPLICATIONS_SERVICE_API_TIMEOUT  = "10000"
     HOST_URL  = "https://applications-service-web-app.azurewebsites.net"
-    SESSION_KEY = "some_key"
+    SESSION_KEY = data.azurerm_key_vault_secret.DockerSessionKey.value
     SUBDOMAIN_OFFSET  = "3"
     USE_SECURE_SESSION_COOKIES  = "false"
     WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "3"
