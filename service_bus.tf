@@ -29,6 +29,30 @@ resource "azurerm_servicebus_queue" "queue3" {
   enable_partitioning = true
 }
 
+resource "azurerm_servicebus_queue" "queue4" {
+  name                = "sql-householder-appeal-publish"
+  resource_group_name = azurerm_resource_group.rg.name
+  namespace_name      = azurerm_servicebus_namespace.service_bus.name
+
+  enable_partitioning = true
+}
+
+resource "azurerm_servicebus_queue" "queue5" {
+  name                = "sql-householder-lpa-publish"
+  resource_group_name = azurerm_resource_group.rg.name
+  namespace_name      = azurerm_servicebus_namespace.service_bus.name
+
+  enable_partitioning = true
+}
+
+resource "azurerm_servicebus_queue" "queue6" {
+  name                = "sql-householder-lpa-queue"
+  resource_group_name = azurerm_resource_group.rg.name
+  namespace_name      = azurerm_servicebus_namespace.service_bus.name
+
+  enable_partitioning = true
+}
+
 #resource "azurerm_role_assignment" "role_assignment3" {
 #scope                = azurerm_resource_group.rg.id
 #role_definition_name = "Contributor"

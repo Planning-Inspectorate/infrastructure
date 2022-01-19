@@ -36,7 +36,7 @@ resource "azurerm_function_app" "fa1" {
   }
   connection_string {
     name  = "pinsuksmessagequeuedev_SERVICEBUS"
-    value = "Endpoint=sb://pins-uks-message-queue-dev.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
     type  = "custom"
   }
 }
