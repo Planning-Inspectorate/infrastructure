@@ -1,5 +1,5 @@
 resource "azurerm_cosmosdb_account" "db" {
-  name                = "${local.resource_name_prefix}-${var.cosomos_db_name}"
+  name                = "${local.resource_name_prefix}-${var.cosmos_db_name}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   offer_type          = "Standard"

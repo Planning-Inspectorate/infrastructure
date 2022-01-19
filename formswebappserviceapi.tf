@@ -16,9 +16,9 @@ resource "azurerm_app_service" "app_service7" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"             = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_TIMEOUT"                = "10000"
     "CLAMAV_HOST"                                = "dev-clamav-test.azurewebsites.net"
-    "APP_APPEALS_BASE_URL"                       = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
-    "APP_LPA_QUESTIONNAIRE_BASE_URL"             = "https://pins-dev-lpa-questionnaire-test7.azurewebsites.net"
-    "APPEALS_SERVICE_API_URL"                    = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
+    "APP_APPEALS_BASE_URL"                       = azurerm_app_service.app_service7.default_site_hostname
+    "APP_LPA_QUESTIONNAIRE_BASE_URL"             = azurerm_app_service.app_service3.default_site_hostname
+    "APPEALS_SERVICE_API_URL"                    = azurerm_app_service.app_service2.default_site_hostname
     "DOCKER_ENABLE_CI"                           = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"            = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                 = data.azurerm_key_vault_secret.docker-reg-server-url.value
@@ -26,7 +26,7 @@ resource "azurerm_app_service" "app_service7" {
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
     "DOCS_API_PATH"                              = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                  = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
+    "DOCUMENTS_SERVICE_API_URL"                  = azurerm_app_service.app_service.default_site_hostname
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION" = "true"
     "FEATURE_FLAG_GOOGLE_TAG_MANAGER"            = "true"
     "FILE_UPLOAD_DEBUG"                          = "true"
@@ -35,9 +35,9 @@ resource "azurerm_app_service" "app_service7" {
     "FILE_UPLOAD_USE_TEMP_FILES"                 = "true"
     "GOOGLE_ANALYTICS_ID"                        = "G-TZBWMVPTHV"
     "GOOGLE_TAG_MANAGER_ID"                      = "GTM-KZN7XP4"
-    "HOST_URL"                                   = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
+    "HOST_URL"                                   = azurerm_app_service.app_service7.default_site_hostname
     "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"   = data.azurerm_key_vault_secret.microsoft-pro-auth-secret.value
-    "PDF_SERVICE_API_URL"                        = "https://pins-dev-pdf-service-api-test7.azurewebsites.net"
+    "PDF_SERVICE_API_URL"                        = azurerm_app_service.appservice4.default_site_hostname
     "PORT"                                       = "3000"
     "SESSION_KEY"                                = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"                 = "sessions"
