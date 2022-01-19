@@ -14,16 +14,16 @@ resource "azurerm_app_service" "app_service5" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
-    "APPEALS_SERVICE_API_URL"                                          = "https://pins-dev-appeals-service-api-test7.azurewebsites.net"
+    "APPEALS_SERVICE_API_URL"                                          = azurerm_app_service.app_service2.default_site_hostname
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                                       = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"                                  = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                    = "/opt/app/api"
-    "DOCUMENTS_SERVICE_API_URL"                                        = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
+    "DOCUMENTS_SERVICE_API_URL"                                        = azurerm_app_service.app_service.default_site_hostname
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                       = "true"
-    "HORIZON_HAS_PUBLISHER_HOST"                                       = "appealsservicebus-test-7.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "appealsservicebus-test-7.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = data.azurerm_key_vault_secret.horizon-pub-pwd.value
+    "HORIZON_HAS_PUBLISHER_HOST"                                       = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
+    "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
+    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy.primary_key
     "HORIZON_HAS_PUBLISHER_PORT"                                       = "5671"
     "HORIZON_HAS_PUBLISHER_QUEUE"                                      = "horizon-householder-appeal-publish"
     "HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT"                            = "1"
@@ -37,8 +37,8 @@ resource "azurerm_app_service" "app_service5" {
     "SERVER_SHOW_ERRORS"                                               = "true"
     "SERVER_TERMINATION_GRACE_PERIOD_SECONDS"                          = "0"
     "SQL_LPA_PUBLISHER_ATTEMPT_RECONNECTION"                           = "true"
-    "SQL_LPA_PUBLISHER_HOST"                                           = "appealsservicebus-test-7.servicebus.windows.net"
-    "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "appealsservicebus-test-7.servicebus.windows.net"
+    "SQL_LPA_PUBLISHER_HOST"                                           = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
+    "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
     "SQL_LPA_PUBLISHER_PASSWORD"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-pwd.value
     "SQL_LPA_PUBLISHER_PORT"                                           = "5671"
     "SQL_LPA_PUBLISHER_QUEUE"                                          = "sql-householder-lpa-publish"

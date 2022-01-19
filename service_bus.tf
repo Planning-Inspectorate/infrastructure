@@ -53,6 +53,15 @@ resource "azurerm_servicebus_queue" "queue6" {
   enable_partitioning = true
 }
 
+resource "azurerm_servicebus_namespace_authorization_rule" "sharedaccesspolicy" {
+  name         = "RootManageSharedAccessKey"
+  namespace_id = azurerm_servicebus_namespace.service_bus.id
+
+  listen = true
+  send   = true
+  manage = true
+}
+
 #resource "azurerm_role_assignment" "role_assignment3" {
 #scope                = azurerm_resource_group.rg.id
 #role_definition_name = "Contributor"

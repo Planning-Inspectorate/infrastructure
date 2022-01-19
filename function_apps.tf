@@ -22,7 +22,7 @@ resource "azurerm_function_app" "fa1" {
     "SQLSERVER_PASSWORD"                       = data.azurerm_key_vault_secret.sql-server-pwd.value
     "SQLSERVER_PORT"                           = "1433"
     "SQLSERVER_USERNAME"                       = data.azurerm_key_vault_secret.sql-server-usr.value
-    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING" = "DefaultEndpointsProtocol=https;AccountName=appealsstoragevcirfs;AccountKey=C5J7BtaIaqyyAlvmOxr0PwWMWPkOVvOXofpGdeqwMaRf1xrm+U/14xddJapMm3o/yIDFpAhDXp7ldULkOP3F/w==;EndpointSuffix=core.windows.net"
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING" = azurerm_storage_account.sa.primary_connection_string
     "WEBSITE_CONTENTSHARE"                     = azurerm_storage_share.fileshare.name
     "WEBSITE_ENABLE_SYNC_UPDATE_SITE"          = "true"
     "WEBSITE_NODE_DEFAULT_VERSION"             = "~14"
@@ -36,7 +36,9 @@ resource "azurerm_function_app" "fa1" {
   }
   connection_string {
     name  = "pinsuksmessagequeuedev_SERVICEBUS"
-    value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    # value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
+    # value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=so41bxWMlwIHff+70VyFuXC6gNFk8w8zFS+Zyioxqg4=;EntityPath=horizon-householder-appeal-publish"
+    value = azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy.primary_connection_string
     type  = "custom"
   }
 }
