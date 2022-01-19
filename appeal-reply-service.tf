@@ -21,8 +21,8 @@ resource "azurerm_app_service" "app_service5" {
     "DOCS_API_PATH"                                                    = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_URL"                                        = "https://pins-dev-appeals-document-service-api-test7.azurewebsites.net"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                       = "true"
-    "HORIZON_HAS_PUBLISHER_HOST"                                       = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "pins-uks-message-queue-dev.servicebus.windows.net"
+    "HORIZON_HAS_PUBLISHER_HOST"                                       = "appealsservicebus-test-7.servicebus.windows.net"
+    "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "appealsservicebus-test-7.servicebus.windows.net"
     "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = data.azurerm_key_vault_secret.horizon-pub-pwd.value
     "HORIZON_HAS_PUBLISHER_PORT"                                       = "5671"
     "HORIZON_HAS_PUBLISHER_QUEUE"                                      = "horizon-householder-appeal-publish"
@@ -37,8 +37,8 @@ resource "azurerm_app_service" "app_service5" {
     "SERVER_SHOW_ERRORS"                                               = "true"
     "SERVER_TERMINATION_GRACE_PERIOD_SECONDS"                          = "0"
     "SQL_LPA_PUBLISHER_ATTEMPT_RECONNECTION"                           = "true"
-    "SQL_LPA_PUBLISHER_HOST"                                           = "pins-uks-message-queue-dev.servicebus.windows.net"
-    "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "pins-uks-message-queue-dev.servicebus.windows.net"
+    "SQL_LPA_PUBLISHER_HOST"                                           = "appealsservicebus-test-7.servicebus.windows.net"
+    "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "appealsservicebus-test-7.servicebus.windows.net"
     "SQL_LPA_PUBLISHER_PASSWORD"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-pwd.value
     "SQL_LPA_PUBLISHER_PORT"                                           = "5671"
     "SQL_LPA_PUBLISHER_QUEUE"                                          = "sql-householder-lpa-publish"
