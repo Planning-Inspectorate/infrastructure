@@ -38,7 +38,7 @@ resource "azurerm_function_app" "fa1" {
     name = "pinsuksmessagequeuedev_SERVICEBUS"
     # value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5RnT8GSCIGIQHXVbbTfNQWxmKXVYzOOVUgFhaqy31tw="
     # value = "Endpoint=sb://appealsservicebus-test-7.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=so41bxWMlwIHff+70VyFuXC6gNFk8w8zFS+Zyioxqg4=;EntityPath=horizon-householder-appeal-publish"
-    value = azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy.primary_connection_string
+    value = azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy1.primary_connection_string
     type  = "custom"
   }
 }

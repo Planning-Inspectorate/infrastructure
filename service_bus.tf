@@ -53,7 +53,7 @@ resource "azurerm_servicebus_queue" "queue6" {
   enable_partitioning = true
 }
 
-resource "azurerm_servicebus_namespace_authorization_rule" "sharedaccesspolicy" {
+resource "azurerm_servicebus_namespace_authorization_rule" "sharedaccesspolicy1" {
   name = "RootManageSharedAccessKey"
   # namespace_id = azurerm_servicebus_namespace.service_bus.id
   resource_group_name = azurerm_resource_group.rg.name
