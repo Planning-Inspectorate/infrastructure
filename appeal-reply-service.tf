@@ -23,7 +23,7 @@ resource "azurerm_app_service" "app_service5" {
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                       = "true"
     "HORIZON_HAS_PUBLISHER_HOST"                                       = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
     "HORIZON_HAS_PUBLISHER_HOSTNAME"                                   = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
-    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy3.primary_key
+    "HORIZON_HAS_PUBLISHER_PASSWORD"                                   = data.azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy3.primary_key
     "HORIZON_HAS_PUBLISHER_PORT"                                       = "5671"
     "HORIZON_HAS_PUBLISHER_QUEUE"                                      = "horizon-householder-appeal-publish"
     "HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT"                            = "1"
