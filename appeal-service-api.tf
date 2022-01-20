@@ -14,9 +14,9 @@ resource "azurerm_app_service" "app_service2" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                              = azurerm_application_insights.appinsights.instrumentation_key
-    "APP_APPEALS_BASE_URL"                                                        = azurerm_app_service.app_service7.default_site_hostname
+    # "APP_APPEALS_BASE_URL"                                                        = azurerm_app_service.app_service7.default_site_hostname
     "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = azurerm_app_service.app_service3.default_site_hostname
-    "APPEALS_SERVICE_API_URL"                                                     = azurerm_app_service.app_service2.default_site_hostname
+    # "APPEALS_SERVICE_API_URL"                                                     = azurerm_app_service.app_service2.default_site_hostname
     "DOCKER_ENABLE_CI"                                                            = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                                                  = data.azurerm_key_vault_secret.docker-reg-server-url.value
