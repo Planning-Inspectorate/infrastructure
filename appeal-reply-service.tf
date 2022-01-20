@@ -14,7 +14,7 @@ resource "azurerm_app_service" "app_service5" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
-    # "APPEALS_SERVICE_API_URL"                                          = azurerm_app_service.app_service2.default_site_hostname
+    "APPEALS_SERVICE_API_URL"                                          = "https://pins-dev-appeals-service-api.azurewebsites.net"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                                       = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"                                  = data.azurerm_key_vault_secret.docker-reg-server-usr.value
