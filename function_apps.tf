@@ -29,6 +29,7 @@ resource "azurerm_function_app" "horizon_function" {
     "WEBSITE_RUN_FROM_PACKAGE"                 = "1"
   }
   os_type = "linux"
+  version = "~3"
   site_config {
     linux_fx_version          = "node|14"
     use_32_bit_worker_process = false
