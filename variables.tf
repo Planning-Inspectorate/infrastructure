@@ -86,6 +86,6 @@ variable "subnetname" {
   description = "Name of the subnet"
 }
 
-variable "horizon_function_dev" {
+variable "horizon_function"{
   description = "Name of the function app"
 }
