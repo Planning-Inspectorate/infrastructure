@@ -1,5 +1,5 @@
-resource "azurerm_app_service" "app_service3" {
-  name                = "${local.resource_name_prefix}-${var.app_service_name3}"
+resource "azurerm_app_service" "lpa_questionnaire" {
+  name                = "${local.resource_name_prefix}-${var.lpa_questionnaire}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
@@ -16,26 +16,26 @@ resource "azurerm_app_service" "app_service3" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"           = azurerm_application_insights.appinsights.instrumentation_key
     "ALLOW_APPEAL_REPLY_CREATE"                = "true"
     "APPEAL_REPLY_SERVICE_API_TIMEOUT"         = "10000"
-    "APPEAL_REPLY_SERVICE_API_URL"             = "https://pins-dev-appeal-reply-service-api.azurewebsites.net"
+    "APPEAL_REPLY_SERVICE_API_URL"             = "https://${local.resource_name_prefix}-${var.appeal_reply_service_api}.azurewebsites.net"
     "APPEALS_SERVICE_API_TIMEOUT"              = "10000"
-    "APPEALS_SERVICE_API_URL"                  = "https://pins-dev-appeals-service-api.azurewebsites.net"
+    "APPEALS_SERVICE_API_URL"                  = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "CLAM_AV_HOST"                             = "dev-clamav.azurewebsites.net"
     "DOCKER_CUSTOM_IMAGE_NAME"                 = "pinscommonukscontainers3887default.azurecr.io/lpa-questionnaire-web-app"
     "DOCKER_REGISTRY_SERVER_PASSWORD"          = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"               = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"          = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCUMENTS_SERVICE_API_TIMEOUT"            = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                = azurerm_app_service.app_service.default_site_hostname
+    "DOCUMENTS_SERVICE_API_URL"                = azurerm_app_service.appeals_document_service_api.default_site_hostname
     "FILE_UPLOAD_DEBUG"                        = "false"
     "FILE_UPLOAD_MAX_FILE_SIZE_BYTES"          = "15000000"
     "FILE_UPLOAD_TMP_PATH"                     = "/tmp"
     "FILE_UPLOAD_USE_TEMP_FILES"               = "true"
-    "HOST_URL"                                 = "https://pins-dev-lpa-questionnaire.azurewebsites.net"
+    "HOST_URL"                                 = "https://${local.resource_name_prefix}-${var.lpa_questionnaire}.azurewebsites.net"
     "JWT_SIGNING_KEY"                          = "QeThWmZq4t7w!z$C&F)J@NcRfUjXn2r5"
     "LOGGER_LEVEL"                             = "debug"
     "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = data.azurerm_key_vault_secret.microsoft-pro-auth-lpa-secret.value
     "NODE_ENV"                                 = "production"
-    "PDF_SERVICE_API_URL"                      = azurerm_app_service.appservice4.default_site_hostname
+    "PDF_SERVICE_API_URL"                      = azurerm_app_service.pdf_service_api.default_site_hostname
     "PORT"                                     = "3000"
     "SESSION_KEY"                              = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"               = "sessions"
@@ -64,7 +64,7 @@ resource "azurerm_app_service" "app_service3" {
 # }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect3" {
-  app_service_id = azurerm_app_service.app_service3.id
+  app_service_id = azurerm_app_service.lpa_questionnaire.id
   subnet_id      = azurerm_subnet.subnet.id
 }
 
@@ -76,7 +76,7 @@ resource "azurerm_app_service_virtual_network_swift_connection" "connect3" {
 
 #   private_service_connection {
 #     name = "lpaconnection"
-#     private_connection_resource_id = azurerm_app_service.app_service3.id
+#     private_connection_resource_id = azurerm_app_service.lpa_questionnaire.id
 #     subresource_names = ["sites"]
 #     is_manual_connection = false
 #   }

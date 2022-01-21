@@ -1,5 +1,5 @@
-resource "azurerm_app_service" "app_service7" {
-  name                = "${local.resource_name_prefix}-${var.app_service_name7}"
+resource "azurerm_app_service" "forms_webappservice_api" {
+  name                = "${local.resource_name_prefix}-${var.forms_webappservice_api}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
@@ -13,12 +13,12 @@ resource "azurerm_app_service" "app_service7" {
   }
 
   app_settings = {
-    "APPINSIGHTS_INSTRUMENTATIONKEY"             = azurerm_application_insights.appinsights.instrumentation_key
-    "APPEALS_SERVICE_API_TIMEOUT"                = "10000"
-    "CLAMAV_HOST"                                = "dev-clamav-test.azurewebsites.net"
-    "APP_APPEALS_BASE_URL"                       = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
-    "APP_LPA_QUESTIONNAIRE_BASE_URL"             = "https://pins-dev-lpa-questionnaire.azurewebsites.net"
-    "APPEALS_SERVICE_API_URL"                    = "https://pins-dev-appeals-service-api.azurewebsites.net"
+    "APPINSIGHTS_INSTRUMENTATIONKEY" = azurerm_application_insights.appinsights.instrumentation_key
+    "APPEALS_SERVICE_API_TIMEOUT"    = "10000"
+    # "CLAMAV_HOST"                                = "dev-clamav-test.azurewebsites.net"
+    # "APP_APPEALS_BASE_URL"                       = "https://${local.resource_name_prefix}-${var.forms_webappservice_api}.azurewebsites.net"
+    "APP_LPA_QUESTIONNAIRE_BASE_URL"             = "https://${local.resource_name_prefix}-${var.lpa_questionnaire}.azurewebsites.net"
+    "APPEALS_SERVICE_API_URL"                    = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "DOCKER_ENABLE_CI"                           = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"            = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                 = data.azurerm_key_vault_secret.docker-reg-server-url.value
@@ -26,7 +26,7 @@ resource "azurerm_app_service" "app_service7" {
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
     "DOCS_API_PATH"                              = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                  = azurerm_app_service.app_service.default_site_hostname
+    "DOCUMENTS_SERVICE_API_URL"                  = azurerm_app_service.appeals_document_service_api.default_site_hostname
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION" = "true"
     "FEATURE_FLAG_GOOGLE_TAG_MANAGER"            = "true"
     "FILE_UPLOAD_DEBUG"                          = "true"
@@ -35,9 +35,9 @@ resource "azurerm_app_service" "app_service7" {
     "FILE_UPLOAD_USE_TEMP_FILES"                 = "true"
     "GOOGLE_ANALYTICS_ID"                        = "G-TZBWMVPTHV"
     "GOOGLE_TAG_MANAGER_ID"                      = "GTM-KZN7XP4"
-    "HOST_URL"                                   = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
+    "HOST_URL"                                   = "https://${local.resource_name_prefix}-${var.forms_webappservice_api}.azurewebsites.net"
     "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"   = data.azurerm_key_vault_secret.microsoft-pro-auth-secret.value
-    "PDF_SERVICE_API_URL"                        = azurerm_app_service.appservice4.default_site_hostname
+    "PDF_SERVICE_API_URL"                        = azurerm_app_service.pdf_service_api.default_site_hostname
     "PORT"                                       = "3000"
     "SESSION_KEY"                                = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"                 = "sessions"
@@ -90,7 +90,7 @@ resource "azurerm_app_service" "app_service7" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect9" {
-  app_service_id = azurerm_app_service.app_service7.id
+  app_service_id = azurerm_app_service.forms_webappservice_api.id
   subnet_id      = azurerm_subnet.subnet.id
 }
 
@@ -102,7 +102,7 @@ resource "azurerm_app_service_virtual_network_swift_connection" "connect9" {
 
 #   private_service_connection {
 #     name = "arconnection"
-#     private_connection_resource_id = azurerm_app_service.app_service2.id
+#     private_connection_resource_id = azurerm_app_service.appeals_service_api.id
 #     subresource_names = ["sites"]
 #     is_manual_connection = false
 #   }

@@ -14,7 +14,7 @@ terraform {
     resource_group_name  = "pinsappealsterraforminfratest"
     storage_account_name = "pinsappealsinfrastgtest"
     container_name       = "pinsappealsinfracontainertest"
-    key                  = "terraform.tfstate"
+    key                  = "terraform-${environment}.tfstate"
   }
 }
 provider "azurerm" {

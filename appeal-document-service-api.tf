@@ -1,5 +1,5 @@
-resource "azurerm_app_service" "app_service" {
-  name                = "${local.resource_name_prefix}-${var.app_service_name1}"
+resource "azurerm_app_service" "appeals_document_service_api" {
+  name                = "${local.resource_name_prefix}-${var.appeals_document_service_api}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
@@ -52,7 +52,7 @@ resource "azurerm_app_service" "app_service" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect1" {
-  app_service_id = azurerm_app_service.app_service.id
+  app_service_id = azurerm_app_service.appeals_document_service_api.id
   subnet_id      = azurerm_subnet.subnet.id
 }
 

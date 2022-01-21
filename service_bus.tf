@@ -1,5 +1,5 @@
 resource "azurerm_servicebus_namespace" "service_bus" {
-  name                = var.Service_bus_name
+  name                = "${var.Service_bus_name}-${var.environment}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "Standard"
@@ -63,7 +63,7 @@ data "azurerm_servicebus_namespace_authorization_rule" "sharedaccesspolicy3" {
 #resource "azurerm_role_assignment" "role_assignment3" {
 #scope                = azurerm_resource_group.rg.id
 #role_definition_name = "Contributor"
-#principal_id         = azurerm_app_service.app_service5.identity.0.principal_id
+#principal_id         = azurerm_app_service.appeal_reply_service_api.identity.0.principal_id
 #}
 
 # resource "azurerm_servicebus_namespace_network_rule_set" "networkintegration1" {

@@ -13,7 +13,7 @@ variable "app_service_plan_name" {
   description = "Name of the App Service Plan"
 }
 
-variable "app_service_name1" {
+variable "appeals_document_service_api" {
   description = "Name of the App Service"
 
 }
@@ -45,26 +45,26 @@ variable "key_vault_name" {
 
 }
 
-variable "app_service_name2" {
+variable "appeals_service_api" {
   description = "Name of the app service2 "
 }
 
 
-variable "app_service_name3" {
+variable "lpa_questionnaire" {
   description = "Name of the app service3"
 
 }
 
-variable "app_service_name4" {
+variable "pdf_service_api" {
   description = "Name of the app service4"
 
 }
 
-variable "app_service_name5" {
+variable "appeal_reply_service_api" {
   description = "Name of the app service5"
 
 }
-variable "app_service_name7" {
+variable "forms_webappservice_api" {
   description = "Name of the app service"
 
 }
@@ -86,16 +86,6 @@ variable "subnetname" {
   description = "Name of the subnet"
 }
 
-variable "functionapp1" {
+variable "horizon_function_dev" {
   description = "Name of the function app"
 }
-
-# variable "functionapp2" {
-#   description = "Name of the function app2"
-# }
-
-
-# variable "functionapp3" {
-#   description = "Name of the function app2"
-# }
-

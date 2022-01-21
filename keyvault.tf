@@ -5,10 +5,10 @@ data "azurerm_key_vault" "key_vault" {
   resource_group_name = "pins-uks-vault-dev"
 }
 
-resource "azurerm_key_vault_access_policy" "myapp" {
+resource "azurerm_key_vault_access_policy" "appeals_document_service_api_policy" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service.identity[0].principal_id
+  object_id    = azurerm_app_service.appeals_document_service_api.identity[0].principal_id
 
   key_permissions = [
     "Get",
@@ -19,10 +19,10 @@ resource "azurerm_key_vault_access_policy" "myapp" {
   ]
 
 }
-resource "azurerm_key_vault_access_policy" "myapp2" {
+resource "azurerm_key_vault_access_policy" "appeals_service_api_policy" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service2.identity[0].principal_id
+  object_id    = azurerm_app_service.appeals_service_api.identity[0].principal_id
 
   key_permissions = [
     "Get",
@@ -33,10 +33,10 @@ resource "azurerm_key_vault_access_policy" "myapp2" {
   ]
 
 }
-resource "azurerm_key_vault_access_policy" "myapp3" {
+resource "azurerm_key_vault_access_policy" "lpa_questionnaire_policy" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service3.identity[0].principal_id
+  object_id    = azurerm_app_service.lpa_questionnaire.identity[0].principal_id
 
   key_permissions = [
     "Get",
@@ -60,10 +60,10 @@ resource "azurerm_key_vault_access_policy" "myapp3" {
 #   ]
 
 # }
-resource "azurerm_key_vault_access_policy" "myapp5" {
+resource "azurerm_key_vault_access_policy" "appeal_reply_service_api_policy" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service5.identity[0].principal_id
+  object_id    = azurerm_app_service.appeal_reply_service_api.identity[0].principal_id
 
   key_permissions = [
     "Get",
@@ -74,10 +74,10 @@ resource "azurerm_key_vault_access_policy" "myapp5" {
   ]
 
 }
-resource "azurerm_key_vault_access_policy" "myapp7" {
+resource "azurerm_key_vault_access_policy" "forms_webappservice_api_policy" {
   key_vault_id = data.azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service7.identity[0].principal_id
+  object_id    = azurerm_app_service.forms_webappservice_api.identity[0].principal_id
 
   key_permissions = [
     "Get",

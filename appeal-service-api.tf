@@ -1,5 +1,5 @@
-resource "azurerm_app_service" "app_service2" {
-  name                = "${local.resource_name_prefix}-${var.app_service_name2}"
+resource "azurerm_app_service" "appeals_service_api" {
+  name                = "${local.resource_name_prefix}-${var.appeals_service_api}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
@@ -14,16 +14,16 @@ resource "azurerm_app_service" "app_service2" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                              = azurerm_application_insights.appinsights.instrumentation_key
-    "APP_APPEALS_BASE_URL"                                                        = "https://pins-dev-formswebappserviceapi.azurewebsites.net"
-    "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = azurerm_app_service.app_service3.default_site_hostname
-    "APPEALS_SERVICE_API_URL"                                                     = "https://pins-dev-appeals-service-api.azurewebsites.net"
+    "APP_APPEALS_BASE_URL"                                                        = "https://${local.resource_name_prefix}-${var.forms_webappservice_api}.azurewebsites.net"
+    "APP_LPA_QUESTIONNAIRE_BASE_URL"                                              = azurerm_app_service.lpa_questionnaire.default_site_hostname
+    "APPEALS_SERVICE_API_URL"                                                     = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "DOCKER_ENABLE_CI"                                                            = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
     "DOCKER_REGISTRY_SERVER_URL"                                                  = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"                                             = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                               = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                                                   = azurerm_app_service.app_service.default_site_hostname
+    "DOCUMENTS_SERVICE_API_URL"                                                   = azurerm_app_service.appeals_document_service_api.default_site_hostname
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION"                                  = "true"
     "HORIZON_HAS_PUBLISHER_HOST"                                                  = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
     "HORIZON_HAS_PUBLISHER_HOSTNAME"                                              = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
@@ -68,7 +68,7 @@ resource "azurerm_app_service" "app_service2" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "connect2" {
-  app_service_id = azurerm_app_service.app_service2.id
+  app_service_id = azurerm_app_service.appeals_service_api.id
   subnet_id      = azurerm_subnet.subnet.id
 }
 
