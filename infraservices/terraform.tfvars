@@ -1,4 +1,4 @@
-ResourceGroup        = "vault"
+ResourceGroup        = "infraservice-test-pod"
 Location             = "uksouth"
 kv-sku-name          = "standard"
 role_definition_name = "Key Vault Administrator"
