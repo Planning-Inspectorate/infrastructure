@@ -26,7 +26,7 @@ resource "azurerm_app_service" "forms_webappservice_api" {
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
     "DOCS_API_PATH"                              = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"              = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                  = azurerm_app_service.appeals_document_service_api.default_site_hostname
+    "DOCUMENTS_SERVICE_API_URL"                  = "https://${azurerm_app_service.appeals_document_service_api.default_site_hostname}"
     "HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION" = "true"
     "FEATURE_FLAG_GOOGLE_TAG_MANAGER"            = "true"
     "FILE_UPLOAD_DEBUG"                          = "true"
@@ -37,7 +37,7 @@ resource "azurerm_app_service" "forms_webappservice_api" {
     "GOOGLE_TAG_MANAGER_ID"                      = "GTM-KZN7XP4"
     "HOST_URL"                                   = "https://${local.resource_name_prefix}-${var.forms_webappservice_api}.azurewebsites.net"
     "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"   = data.azurerm_key_vault_secret.microsoft-pro-auth-secret.value
-    "PDF_SERVICE_API_URL"                        = azurerm_app_service.pdf_service_api.default_site_hostname
+    "PDF_SERVICE_API_URL"                        = "https://${azurerm_app_service.pdf_service_api.default_site_hostname}"
     "PORT"                                       = "3000"
     "SESSION_KEY"                                = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"                 = "sessions"
