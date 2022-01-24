@@ -7,7 +7,7 @@ resource "azurerm_log_analytics_workspace" "app-workspace" {
 }
 
 resource "azurerm_storage_account" "appstorage" {
-  name                     = "pins-app-webstorage"
+  name                     = "pinsappwebstorage"
   resource_group_name      = azurerm_resource_group.AppSrvRG.name
   location                 = azurerm_resource_group.AppSrvRG.location
   account_tier             = "Standard"
