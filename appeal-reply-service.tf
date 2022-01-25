@@ -16,7 +16,7 @@ resource "azurerm_app_service" "appeal_reply_service_api" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_URL"                                          = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                                       = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_URL"                                       = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
     "DOCKER_REGISTRY_SERVER_USERNAME"                                  = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                    = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_URL"                                        = azurerm_app_service.appeals_document_service_api.default_site_hostname
@@ -39,12 +39,12 @@ resource "azurerm_app_service" "appeal_reply_service_api" {
     "SQL_LPA_PUBLISHER_ATTEMPT_RECONNECTION"                           = "true"
     "SQL_LPA_PUBLISHER_HOST"                                           = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
     "SQL_LPA_PUBLISHER_HOSTNAME"                                       = "${azurerm_servicebus_namespace.service_bus.name}.servicebus.windows.net"
-    "SQL_LPA_PUBLISHER_PASSWORD"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-pwd.value
+    "SQL_LPA_PUBLISHER_PASSWORD"                                       = data.azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy3.primary_key
     "SQL_LPA_PUBLISHER_PORT"                                           = "5671"
     "SQL_LPA_PUBLISHER_QUEUE"                                          = "sql-householder-lpa-publish"
     "SQL_LPA_PUBLISHER_RECONNECT_LIMIT"                                = "5"
     "SQL_LPA_PUBLISHER_TRANSPORT"                                      = "tls"
-    "SQL_LPA_PUBLISHER_USERNAME"                                       = data.azurerm_key_vault_secret.sql-lpa-pub-usr.value
+    "SQL_LPA_PUBLISHER_USERNAME"                                       = data.azurerm_servicebus_namespace_authorization_rule.sharedaccesspolicy3.name
     "SRV_NOTIFY_BASE_URL"                                              = "https://api.notifications.service.gov.uk"
     "SRV_NOTIFY_EMAIL_REPLYTO_ID_APPEAL_REPLY_SUBMISSION_CONFIRMATION" = "f1e6c8c5-786e-41ca-9086-10b67f31bc86"
     "SRV_NOTIFY_SERVICE_ID"                                            = "c46d894e-d10e-4c46-a467-019576cd906a"

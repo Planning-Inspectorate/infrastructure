@@ -7,13 +7,13 @@ resource "azurerm_function_app" "horizon_function" {
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = azurerm_application_insights.appinsights.instrumentation_key
-    "APPEALS_SERVICE_URL"            = azurerm_app_service.appeals_service_api.default_site_hostname
+    "APPEALS_SERVICE_URL"            = "https://${azurerm_app_service.appeals_service_api.default_site_hostname}"
     # "APPLICATIONINSIGHTS_CONNECTION_STRING"                    = "InstrumentationKey=70d6e1cf-c440-4460-b4c1-4f1a422c2825;IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
     # "AzureWebJobs.horizon-householder-appeal-publish.Disabled" = "0"
     # "AzureWebJobs.sql-householder-appeal-publish.Disabled"     = "0"
     # "AzureWebJobs.sql-householder-lpa-publish.Disabled"        = "0"
     "AzureWebJobsStorage"                      = "DefaultEndpointsProtocol=https;AccountName=storageaccountpinsubd42;AccountKey=yOtHScQOX/59dEjgf5+85eYdQSbx3oljQW5n3Rowj4tz41GJExpQmHTX+vywhR0Sm5KZ6zcncWX3bTJ3ixCZNQ==;EndpointSuffix=core.windows.net"
-    "DOCUMENT_SERVICE_URL"                     = azurerm_app_service.appeals_document_service_api.default_site_hostname
+    "DOCUMENT_SERVICE_URL"                     = "https://${azurerm_app_service.appeals_document_service_api.default_site_hostname}"
     "FUNCTIONS_EXTENSION_VERSION"              = "~3"
     "FUNCTIONS_WORKER_RUNTIME"                 = "node"
     "HORIZON_URL"                              = "http://10.0.7.4:8000"

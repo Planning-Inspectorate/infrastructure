@@ -23,7 +23,7 @@ resource "azurerm_app_service" "appeals_document_service_api" {
     "DiagnosticServices_EXTENSION_VERSION"            = "disabled"
     "DOCKER_ENABLE_CI"                                = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                 = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                      = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_URL"                      = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
     "DOCKER_REGISTRY_SERVER_USERNAME"                 = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                   = "/opt/app/api"
     "FILE_MAX_SIZE_IN_BYTES"                          = "15000000"

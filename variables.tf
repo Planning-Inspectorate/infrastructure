@@ -68,10 +68,10 @@ variable "forms_webappservice_api" {
   description = "Name of the app service"
 
 }
-variable "cosmos_db_name" {
-  description = "Name of the db account"
+# variable "cosmos_db_name" {
+#   description = "Name of the db account"
 
-}
+# }
 
 variable "Service_bus_name" {
   description = "Name of the service bus"

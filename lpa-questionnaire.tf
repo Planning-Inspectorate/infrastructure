@@ -22,7 +22,7 @@ resource "azurerm_app_service" "lpa_questionnaire" {
     "CLAM_AV_HOST"                             = "dev-clamav.azurewebsites.net"
     "DOCKER_CUSTOM_IMAGE_NAME"                 = "pinscommonukscontainers3887default.azurecr.io/lpa-questionnaire-web-app"
     "DOCKER_REGISTRY_SERVER_PASSWORD"          = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"               = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_URL"               = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
     "DOCKER_REGISTRY_SERVER_USERNAME"          = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCUMENTS_SERVICE_API_TIMEOUT"            = "10000"
     "DOCUMENTS_SERVICE_API_URL"                = azurerm_app_service.appeals_document_service_api.default_site_hostname
@@ -35,7 +35,7 @@ resource "azurerm_app_service" "lpa_questionnaire" {
     "LOGGER_LEVEL"                             = "debug"
     "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = data.azurerm_key_vault_secret.microsoft-pro-auth-lpa-secret.value
     "NODE_ENV"                                 = "production"
-    "PDF_SERVICE_API_URL"                      = azurerm_app_service.pdf_service_api.default_site_hostname
+    "PDF_SERVICE_API_URL"                      = "https://${azurerm_app_service.pdf_service_api.default_site_hostname}"
     "PORT"                                     = "3000"
     "SESSION_KEY"                              = "some_secure_key_goes_here"
     "SESSION_MONGODB_COLLECTION"               = "sessions"

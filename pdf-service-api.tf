@@ -16,7 +16,7 @@ resource "azurerm_app_service" "pdf_service_api" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"          = azurerm_application_insights.appinsights.instrumentation_key
     "DOCKER_ENABLE_CI"                        = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"         = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"              = data.azurerm_key_vault_secret.docker-reg-server-url.value
+    "DOCKER_REGISTRY_SERVER_URL"              = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
     "DOCKER_REGISTRY_SERVER_USERNAME"         = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                           = "/opt/app/api"
     "GOTENBERG_URL"                           = "http://gotenberg:4000"
