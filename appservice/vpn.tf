@@ -20,7 +20,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   type                = "Vpn"
   vpn_type            = "RouteBased"
-  sku                 = "VpnGw1"
+  sku                 = "VpnGw2"
   # private_ip_address_enabled = true
 
   ip_configuration {
