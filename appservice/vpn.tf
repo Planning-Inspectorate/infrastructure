@@ -14,13 +14,15 @@ resource "azurerm_local_network_gateway" "home" {
   depends_on = [azurerm_public_ip.vpnip]
 }
 
-resource "azurerm_local_network_gateway" "ukappNisp" {
+
+resource "azurerm_local_network_gateway" "appnsip" {
   name                = "pins-uks-app-nsip"
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   location            = azurerm_resource_group.AppSrvRG.location
   gateway_address     = "51.104.42.155"
-  
-  depends_on = [azurerm_public_ip.vpnip]
+  address_space       = ["10.222.0.0/26"]
+
+  depends_on = [azurerm_public_ip.apppip2]
 }
 
 resource "azurerm_virtual_network_gateway" "vpn-gateway" {
@@ -52,7 +54,7 @@ resource "azurerm_virtual_network_gateway_connection" "onpremise" {
 
   type                       = "IPsec"
   virtual_network_gateway_id = azurerm_virtual_network_gateway.vpn-gateway.id
-  local_network_gateway_id   = azurerm_local_network_gateway.ukappNisp.id
+  local_network_gateway_id   = azurerm_local_network_gateway.appnsip.id
   shared_key                 = data.azurerm_key_vault_secret.VpnConnectionKey.value
   
   depends_on = [azurerm_virtual_network_gateway.vpn-gateway]
