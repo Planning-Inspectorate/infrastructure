@@ -16,7 +16,7 @@ resource "azurerm_app_service" "appeal_reply_service_api" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"                                   = azurerm_application_insights.appinsights.instrumentation_key
     "APPEALS_SERVICE_API_URL"                                          = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                  = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                                       = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
+    "DOCKER_REGISTRY_SERVER_URL"                                       = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"                                  = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                    = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_URL"                                        = azurerm_app_service.appeals_document_service_api.default_site_hostname

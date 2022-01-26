@@ -19,7 +19,7 @@ resource "azurerm_app_service" "appeals_service_api" {
     "APPEALS_SERVICE_API_URL"                                                     = "https://${local.resource_name_prefix}-${var.appeals_service_api}.azurewebsites.net"
     "DOCKER_ENABLE_CI"                                                            = "true"
     "DOCKER_REGISTRY_SERVER_PASSWORD"                                             = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"                                                  = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
+    "DOCKER_REGISTRY_SERVER_URL"                                                  = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"                                             = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCS_API_PATH"                                                               = "/opt/app/api"
     "DOCUMENTS_SERVICE_API_TIMEOUT"                                               = "10000"

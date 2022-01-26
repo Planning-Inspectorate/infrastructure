@@ -22,10 +22,10 @@ resource "azurerm_app_service" "lpa_questionnaire" {
     "CLAM_AV_HOST"                             = "dev-clamav.azurewebsites.net"
     "DOCKER_CUSTOM_IMAGE_NAME"                 = "pinscommonukscontainers3887default.azurecr.io/lpa-questionnaire-web-app"
     "DOCKER_REGISTRY_SERVER_PASSWORD"          = data.azurerm_key_vault_secret.docker-reg-server-pwd.value
-    "DOCKER_REGISTRY_SERVER_URL"               = "https://${data.azurerm_key_vault_secret.docker-reg-server-url.value}"
+    "DOCKER_REGISTRY_SERVER_URL"               = data.azurerm_key_vault_secret.docker-reg-server-url.value
     "DOCKER_REGISTRY_SERVER_USERNAME"          = data.azurerm_key_vault_secret.docker-reg-server-usr.value
     "DOCUMENTS_SERVICE_API_TIMEOUT"            = "10000"
-    "DOCUMENTS_SERVICE_API_URL"                = azurerm_app_service.appeals_document_service_api.default_site_hostname
+    "DOCUMENTS_SERVICE_API_URL"                = "https://${azurerm_app_service.appeals_document_service_api.default_site_hostname}"
     "FILE_UPLOAD_DEBUG"                        = "false"
     "FILE_UPLOAD_MAX_FILE_SIZE_BYTES"          = "15000000"
     "FILE_UPLOAD_TMP_PATH"                     = "/tmp"
