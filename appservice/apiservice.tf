@@ -19,9 +19,9 @@ resource "azurerm_app_service" "apiapp" {
     APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.apiinsigts.instrumentation_key};IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
     ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
     DOCKER_REGISTRY_SERVER_URL      = "https://pinscommonukscontainers3887default.azurecr.io"
-    DOCKER_REGISTRY_SERVER_USERNAME = "pinscommonukscontainers3887default"
-    DOCKER_REGISTRY_SERVER_PASSWORD = "a2oJipgw82NsbjA=9JhYuGy5pI9s6pSY"
-    ENCRYPTION_SECRET_KEY    = "x!A%C*F-JaNdRgUkXp2s5v8y/B?E(G+K"
+    DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
+    DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
+    ENCRYPTION_SECRET_KEY    = data.azurerm_key_vault_secret.EncryptionSecretKey.value
     FORMS_WEB_APP_HOST  = "51.104.28.75"
     HAVING_YOUR_SAY_URL  = "https://applications-service-web-app.azurewebsites.net/"
     LOGGER_LEVEL = "info"
@@ -29,15 +29,15 @@ resource "azurerm_app_service" "apiapp" {
     MYSQL_DATABASE  = "ipclive"
     MYSQL_DIALECT  = "mysql"
     MYSQL_HOST  = "10.222.0.6"
-    MYSQL_PASSWORD = "YuRgetM32do?"
+    MYSQL_PASSWORD = data.azurerm_key_vault_secret.MysqlPassword.value
     MYSQL_PORT  = "3306"
-    MYSQL_USERNAME  = "ipc"
+    MYSQL_USERNAME  = data.azurerm_key_vault_secret.MysqlUserName.value
     NODE_ENV  = "development"
     PRELIMINARY_MEETING_URL = "https://applications-service-web-app.azurewebsites.net/"
     SERVER_PORT = "3000"
     SERVER_SHOW_ERRORS  = "true"
     SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
-    SRV_NOTIFY_API_KEY  = "applicationsservice-9b89eb93-3071-432c-9c6b-4e07dbda9071-101fa83a-8d08-40af-92b6-246b95074e5a"
+    SRV_NOTIFY_API_KEY  = data.azurerm_key_vault_secret.SrvNotifyKey.value
     TRIALIST_DATA_PATH  = "/opt/app/data/trialists.json"
     WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "7"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"

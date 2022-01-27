@@ -31,3 +31,23 @@ data "azurerm_key_vault_secret" "DockerSessionKey" {
  name         = "dockersessionkey"
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
+
+data "azurerm_key_vault_secret" "EncryptionSecretKey" {
+ name         = "encryptionsecretkey"
+ key_vault_id = data.azurerm_key_vault.KVault.id
+}
+
+data "azurerm_key_vault_secret" "MysqlPassword" {
+ name         = "mysqlpassword"
+ key_vault_id = data.azurerm_key_vault.KVault.id
+}
+
+data "azurerm_key_vault_secret" "MysqlUserName" {
+ name         = "mysqlusername"
+ key_vault_id = data.azurerm_key_vault.KVault.id
+}
+
+data "azurerm_key_vault_secret" "SrvNotifyKey" {
+ name         = "sevnotifyapikey"
+ key_vault_id = data.azurerm_key_vault.KVault.id
+}
