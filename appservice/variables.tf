@@ -6,6 +6,10 @@ variable "AppSrvPlan" {}
 variable "subnet_web" {}
 variable "gatewaysubnet" {}
 
+# vpn
+variable "gateway_address" {}
+variable "address_space" {}
+
 variable "KeyVaultRG" {}
 variable "KeyVaultName" {}
 #webservice
@@ -41,3 +45,4 @@ variable "SERVER_TERMINATION_GRACE_PERIOD_SECONDS" {}
 variable "TRIALIST_DATA_PATH"{}
 variable "API_WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
 variable "API_WEBSITES_ENABLE_APP_SERVICE_STORAGE" {}
+variable "API_XDT_MicrosoftApplicationInsights_Mode" {}

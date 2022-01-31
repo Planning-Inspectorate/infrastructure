@@ -41,7 +41,7 @@ resource "azurerm_app_service" "apiapp" {
     TRIALIST_DATA_PATH  = var.TRIALIST_DATA_PATH
     WEBSITE_HTTPLOGGING_RETENTION_DAYS  = var.API_WEBSITE_HTTPLOGGING_RETENTION_DAYS
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = var.API_WEBSITES_ENABLE_APP_SERVICE_STORAGE
-    XDT_MicrosoftApplicationInsights_Mode = var.XDT_MicrosoftApplicationInsights_Mode
+    XDT_MicrosoftApplicationInsights_Mode = var.API_XDT_MicrosoftApplicationInsights_Mode
   }
 
   # Configure Docker Image to load on start

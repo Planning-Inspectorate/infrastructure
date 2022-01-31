@@ -45,3 +45,9 @@ SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
 TRIALIST_DATA_PATH  = "/opt/app/data/trialists.json"
 API_WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "7"
 API_WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+API_XDT_MicrosoftApplicationInsights_Mode = "default"
+
+# vpn
+
+gateway_address = "51.104.42.155"
+address_space   = "10.222.0.0/26"

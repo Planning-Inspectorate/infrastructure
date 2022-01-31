@@ -16,7 +16,7 @@ resource "azurerm_local_network_gateway" "home" {
   name                = "pins-uks-apps-nsip-localnetgw"
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   location            = azurerm_resource_group.AppSrvRG.location
-  gateway_address     = "51.104.42.155"
+  gateway_address     = var.gateway_address
   
   depends_on = [azurerm_public_ip.vpnip1]
 }
@@ -26,8 +26,8 @@ resource "azurerm_local_network_gateway" "appnsip" {
   name                = "pins-uks-app-nsip"
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   location            = azurerm_resource_group.AppSrvRG.location
-  gateway_address     = "51.104.42.155"
-  address_space       = ["10.222.0.0/26"]
+  gateway_address     = var.gateway_address
+  address_space       = [var.address_space ]
 
   depends_on = [azurerm_public_ip.vpnip1]
 }
