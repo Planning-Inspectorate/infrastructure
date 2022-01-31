@@ -31,12 +31,12 @@ resource "azurerm_app_service" "webapp" {
     ApplicationInsightsAgent_EXTENSION_VERSION  = var.ApplicationInsightsAgent_EXTENSION_VERSION
     DOCKER_CUSTOM_IMAGE_NAME        = "pinscommonukscontainers3887default.azurecr.io/applications-forms-web-app:latest"
     DOCKER_REGISTRY_SERVER_URL      = var.Docker_Registry_Server_URL
-    DOCKER_REGISTRY_SERVER_USERNAME = var.Docker_Registry_Server_Username
-    DOCKER_REGISTRY_SERVER_PASSWORD = var.Docker_Registry_Server_Password
+    DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
+    DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
     APPLICATIONS_SERVICE_API_URL    = var.Appliction_Service_API_URL
     APPLICATIONS_SERVICE_API_TIMEOUT  = var.APPLICATIONS_SERVICE_API_TIMEOUT
     HOST_URL  = var.HOST_URL
-    SESSION_KEY = var.SESSION_KEY
+    SESSION_KEY = data.azurerm_key_vault_secret.DockerSessionKey.value
     SUBDOMAIN_OFFSET  = var.SUBDOMAIN_OFFSET
     USE_SECURE_SESSION_COOKIES  = var.USE_SECURE_SESSION_COOKIES
     WEBSITE_HTTPLOGGING_RETENTION_DAYS  = var.WEBSITE_HTTPLOGGING_RETENTION_DAYS

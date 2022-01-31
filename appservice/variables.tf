@@ -13,12 +13,9 @@ variable "App_Service_Name" {}
 variable "IngestionEndpoint" {}
 variable "ApplicationInsightsAgent_EXTENSION_VERSION" {}
 variable "Docker_Registry_Server_URL" {}
-variable "Docker_Registry_Server_Username" {}
-variable "Docker_Registry_Server_Password" {}
 variable "Appliction_Service_API_URL" {}
 variable "APPLICATIONS_SERVICE_API_TIMEOUT" {}
 variable "HOST_URL" {}
-variable "SESSION_KEY" {}
 variable "SUBDOMAIN_OFFSET" {}
 variable "USE_SECURE_SESSION_COOKIES" {}
 variable "WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
