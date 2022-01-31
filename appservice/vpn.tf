@@ -43,10 +43,6 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   depends_on = [azurerm_public_ip.apppip2]
 }
 
-
-
-
-
 resource "azurerm_virtual_network_gateway_connection" "onpremise" {
   name                = "uks-applications-nsip-vpn"
   location            = azurerm_resource_group.AppSrvRG.location

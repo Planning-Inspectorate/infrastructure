@@ -6,18 +6,21 @@ variable "AppSrvPlan" {}
 variable "subnet_web" {}
 variable "gatewaysubnet" {}
 
-# Key Vault test variables
-# variable "kv-full-object-id" {
-#   type = string
-# }
-
 variable "KeyVaultRG" {}
 variable "KeyVaultName" {}
-#variable "SitePip" {}
-#variable "VpnIpsec" {}
-
-#variable "DockerRegUrl" {}
-#variable "dockerusername" {}
-#variable "dockeruserpass" {}
-# variable "DockerUserName" {}
-# variable "DockerUserPass" {}
+variable "App_Insight_Name" {}
+variable "App_Service_Name" {}
+variable "IngestionEndpoint" {}
+variable "ApplicationInsightsAgent_EXTENSION_VERSION" {}
+variable "Docker_Registry_Server_URL" {}
+variable "Docker_Registry_Server_Username" {}
+variable "Docker_Registry_Server_Password" {}
+variable "Appliction_Service_API_URL" {}
+variable "APPLICATIONS_SERVICE_API_TIMEOUT" {}
+variable "HOST_URL" {}
+variable "SESSION_KEY" {}
+variable "SUBDOMAIN_OFFSET" {}
+variable "USE_SECURE_SESSION_COOKIES" {}
+variable "WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
+variable "WEBSITES_ENABLE_APP_SERVICE_STORAGE" {}
+variable "XDT_MicrosoftApplicationInsights_Mode" {}

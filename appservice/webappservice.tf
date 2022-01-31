@@ -1,6 +1,6 @@
 
 resource "azurerm_application_insights" "webinsigts" {
-  name                = "applications-service-web-app"
+  name                = var.App_Insight_Name
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   application_type    = "web"
@@ -19,7 +19,7 @@ resource "azurerm_app_service_plan" "AppSrvPlan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "applications-service-web-app-2"
+  name                = var.App_Service_Name
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   app_service_plan_id = azurerm_app_service_plan.AppSrvPlan.id
@@ -27,21 +27,21 @@ resource "azurerm_app_service" "webapp" {
   # Do not attach Storage by default
   app_settings = {
     APPINSIGHTS_INSTRUMENTATIONKEY  = azurerm_application_insights.webinsigts.instrumentation_key
-    APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.webinsigts.instrumentation_key};IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
-    ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
+    APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.webinsigts.instrumentation_key};IngestionEndpoint=${var.IngestionEndpoint}"
+    ApplicationInsightsAgent_EXTENSION_VERSION  = var.ApplicationInsightsAgent_EXTENSION_VERSION
     DOCKER_CUSTOM_IMAGE_NAME        = "pinscommonukscontainers3887default.azurecr.io/applications-forms-web-app:latest"
-    DOCKER_REGISTRY_SERVER_URL      = "https://pinscommonukscontainers3887default.azurecr.io"
-    DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
-    DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
-    APPLICATIONS_SERVICE_API_URL    = "https://applications-service-api.azurewebsites.net"
-    APPLICATIONS_SERVICE_API_TIMEOUT  = "10000"
-    HOST_URL  = "https://applications-service-web-app.azurewebsites.net"
-    SESSION_KEY = data.azurerm_key_vault_secret.DockerSessionKey.value
-    SUBDOMAIN_OFFSET  = "3"
-    USE_SECURE_SESSION_COOKIES  = "false"
-    WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "3"
-    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    XDT_MicrosoftApplicationInsights_Mode = "default"
+    DOCKER_REGISTRY_SERVER_URL      = var.Docker_Registry_Server_URL
+    DOCKER_REGISTRY_SERVER_USERNAME = var.Docker_Registry_Server_Username
+    DOCKER_REGISTRY_SERVER_PASSWORD = var.Docker_Registry_Server_Password
+    APPLICATIONS_SERVICE_API_URL    = var.Appliction_Service_API_URL
+    APPLICATIONS_SERVICE_API_TIMEOUT  = var.APPLICATIONS_SERVICE_API_TIMEOUT
+    HOST_URL  = var.HOST_URL
+    SESSION_KEY = var.data.azurerm_key_vault_secret.DockerSessionKey.value
+    SUBDOMAIN_OFFSET  = var.SUBDOMAIN_OFFSET
+    USE_SECURE_SESSION_COOKIES  = var.USE_SECURE_SESSION_COOKIES
+    WEBSITE_HTTPLOGGING_RETENTION_DAYS  = var.WEBSITE_HTTPLOGGING_RETENTION_DAYS
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = var.WEBSITES_ENABLE_APP_SERVICE_STORAGE
+    XDT_MicrosoftApplicationInsights_Mode = var.XDT_MicrosoftApplicationInsights_Mode
   }
 
   # Configure Docker Image to load on start
