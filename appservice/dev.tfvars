@@ -48,6 +48,6 @@ API_WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
 API_XDT_MicrosoftApplicationInsights_Mode = "default"
 
 # vpn
-
+vpn_gw          = "app_dev_vpn_gw"
 gateway_address = "51.104.42.155"
 address_space   = "10.222.0.0/26"

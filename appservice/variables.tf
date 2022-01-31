@@ -7,6 +7,7 @@ variable "subnet_web" {}
 variable "gatewaysubnet" {}
 
 # vpn
+variable "vpn_gw" {}
 variable "gateway_address" {}
 variable "address_space" {}
 

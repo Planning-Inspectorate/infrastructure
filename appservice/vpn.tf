@@ -33,7 +33,7 @@ resource "azurerm_local_network_gateway" "appnsip" {
 }
 
 resource "azurerm_virtual_network_gateway" "vpn-gateway" {
-  name                = "vpn-gw"
+  name                = var.vpn_gw
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   type                = "Vpn"
