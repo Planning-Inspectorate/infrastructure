@@ -16,32 +16,32 @@ resource "azurerm_app_service" "apiapp" {
   app_settings = {
     APP_APPLICATIONS_BASE_URL  = "https://applications-service-web-app.azurewebsites.net"
     APPINSIGHTS_INSTRUMENTATIONKEY  = azurerm_application_insights.apiinsigts.instrumentation_key
-    APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.apiinsigts.instrumentation_key};IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/"
+    APPLICATIONINSIGHTS_CONNECTION_STRING = "InstrumentationKey=${azurerm_application_insights.apiinsigts.instrumentation_key};IngestionEndpoint=${var.IngestionEndpoint}"
     ApplicationInsightsAgent_EXTENSION_VERSION  = "~3"
-    DOCKER_REGISTRY_SERVER_URL      = "https://pinscommonukscontainers3887default.azurecr.io"
+    DOCKER_REGISTRY_SERVER_URL      = var.Docker_Registry_Server_URL
     DOCKER_REGISTRY_SERVER_USERNAME = data.azurerm_key_vault_secret.DockerUserName.value
     DOCKER_REGISTRY_SERVER_PASSWORD = data.azurerm_key_vault_secret.DockerUserPass.value
     ENCRYPTION_SECRET_KEY    = data.azurerm_key_vault_secret.EncryptionSecretKey.value
-    FORMS_WEB_APP_HOST  = "51.104.28.75"
-    HAVING_YOUR_SAY_URL  = "https://applications-service-web-app.azurewebsites.net/"
-    LOGGER_LEVEL = "info"
-    MAGIC_LINK_DOMAIN  = "https://applications-service-web-app.azurewebsites.net/"
-    MYSQL_DATABASE  = "ipclive"
-    MYSQL_DIALECT  = "mysql"
-    MYSQL_HOST  = "10.222.0.6"
+    FORMS_WEB_APP_HOST  = var.FORMS_WEB_APP_HOST
+    HAVING_YOUR_SAY_URL  = var.HAVING_YOUR_SAY_URL
+    LOGGER_LEVEL = var.LOGGER_LEVEL
+    MAGIC_LINK_DOMAIN  = var.MAGIC_LINK_DOMAIN
+    MYSQL_DATABASE  = var.MYSQL_DATABASE
+    MYSQL_DIALECT  = var.MYSQL_DIALECT
+    MYSQL_HOST  = var.MYSQL_HOST
     MYSQL_PASSWORD = data.azurerm_key_vault_secret.MysqlPassword.value
-    MYSQL_PORT  = "3306"
+    MYSQL_PORT  = var.MYSQL_PORT
     MYSQL_USERNAME  = data.azurerm_key_vault_secret.MysqlUserName.value
-    NODE_ENV  = "development"
-    PRELIMINARY_MEETING_URL = "https://applications-service-web-app.azurewebsites.net/"
-    SERVER_PORT = "3000"
-    SERVER_SHOW_ERRORS  = "true"
-    SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
+    NODE_ENV  = var.NODE_ENV
+    PRELIMINARY_MEETING_URL = var.PRELIMINARY_MEETING_URL
+    SERVER_PORT = var.SERVER_PORT
+    SERVER_SHOW_ERRORS  = var.SERVER_SHOW_ERRORS
+    SERVER_TERMINATION_GRACE_PERIOD_SECONDS = var.SERVER_TERMINATION_GRACE_PERIOD_SECONDS
     SRV_NOTIFY_API_KEY  = data.azurerm_key_vault_secret.SrvNotifyKey.value
-    TRIALIST_DATA_PATH  = "/opt/app/data/trialists.json"
-    WEBSITE_HTTPLOGGING_RETENTION_DAYS  = "7"
-    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    XDT_MicrosoftApplicationInsights_Mode = "default"
+    TRIALIST_DATA_PATH  = var.TRIALIST_DATA_PATH
+    WEBSITE_HTTPLOGGING_RETENTION_DAYS  = var.WEBSITE_HTTPLOGGING_RETENTION_DAYS
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = var.WEBSITES_ENABLE_APP_SERVICE_STORAGE
+    XDT_MicrosoftApplicationInsights_Mode = var.XDT_MicrosoftApplicationInsights_Mode
   }
 
   # Configure Docker Image to load on start
