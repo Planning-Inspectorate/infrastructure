@@ -39,7 +39,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   type                = "Vpn"
   vpn_type            = "RouteBased"
   sku                 = "VpnGw2"
-  # private_ip_address_enabled = true
+  active_active       = true
 
   ip_configuration {
     name                          = "vpnexternalip1"
@@ -57,7 +57,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   depends_on = [azurerm_public_ip.apppip2]
 }
 
-resource "azurerm_virtual_network_gateway_connection" "onpremise" {
+resource "azurerm_virtual_network_gateway_connection" "uks-applications-nsip-vpn" {
   name                = "uks-applications-nsip-vpn"
   location            = azurerm_resource_group.AppSrvRG.location
   resource_group_name = azurerm_resource_group.AppSrvRG.name
