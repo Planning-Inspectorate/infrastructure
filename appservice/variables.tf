@@ -40,4 +40,3 @@ variable "SERVER_TERMINATION_GRACE_PERIOD_SECONDS" {}
 variable "TRIALIST_DATA_PATH"{}
 variable "WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
 variable "WEBSITES_ENABLE_APP_SERVICE_STORAGE" {}
-variable "XDT_MicrosoftApplicationInsights_Mode" {}
