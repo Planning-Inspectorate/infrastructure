@@ -22,6 +22,7 @@ variable "USE_SECURE_SESSION_COOKIES" {}
 variable "WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
 variable "WEBSITES_ENABLE_APP_SERVICE_STORAGE" {}
 variable "XDT_MicrosoftApplicationInsights_Mode" {}
+variable "DOCKER_CUSTOM_IMAGE_NAME" {}
 
 #app service
 variable "FORMS_WEB_APP_HOST" {}
