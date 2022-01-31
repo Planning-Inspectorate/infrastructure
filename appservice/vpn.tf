@@ -1,5 +1,12 @@
-resource "azurerm_public_ip" "vpnip" {
-  name                = "pins-uks-applications-gw"
+resource "azurerm_public_ip" "vpnip1" {
+  name                = "pins-uks-applications-gw1"
+  resource_group_name = azurerm_resource_group.AppSrvRG.name
+  location            = azurerm_resource_group.AppSrvRG.location
+  allocation_method   = "Dynamic"
+}
+
+resource "azurerm_public_ip" "vpnip2" {
+  name                = "pins-uks-applications-gw2"
   resource_group_name = azurerm_resource_group.AppSrvRG.name
   location            = azurerm_resource_group.AppSrvRG.location
   allocation_method   = "Dynamic"
@@ -22,7 +29,7 @@ resource "azurerm_local_network_gateway" "appnsip" {
   gateway_address     = "51.104.42.155"
   address_space       = ["10.222.0.0/26"]
 
-  depends_on = [azurerm_public_ip.apppip2]
+  depends_on = [azurerm_public_ip.vpnip1]
 }
 
 resource "azurerm_virtual_network_gateway" "vpn-gateway" {
@@ -35,8 +42,15 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   # private_ip_address_enabled = true
 
   ip_configuration {
-    name                          = "vpnexternalip"
-    public_ip_address_id          = azurerm_public_ip.apppip2.id
+    name                          = "vpnexternalip1"
+    public_ip_address_id          = azurerm_public_ip.vpnip1.id
+    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.gateway-subnet.id
+  }
+
+  ip_configuration {
+    name                          = "vpnexternalip2"
+    public_ip_address_id          = azurerm_public_ip.vpnip2.id
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.gateway-subnet.id
   }  
