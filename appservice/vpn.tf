@@ -18,7 +18,7 @@ resource "azurerm_local_network_gateway" "home" {
   location            = azurerm_resource_group.AppSrvRG.location
   gateway_address     = "51.104.42.155"
   
-  depends_on = [azurerm_public_ip.vpnip]
+  depends_on = [azurerm_public_ip.vpnip1]
 }
 
 
