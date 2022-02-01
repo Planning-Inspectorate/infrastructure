@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "pinsapplicationstfRG"
-    storage_account_name = "pinsapplicationstg"
-    container_name       = "pinsapplicationblob"
-    key                  = "application.tfstate"
+    resource_group_name  = var.TF_resource_group_name
+    storage_account_name = var.TF_storage_account_name
+    container_name       = var.TF_container_name
+    key                  = var.TF_key
   }
 }
 provider "azurerm" {

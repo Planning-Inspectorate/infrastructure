@@ -60,3 +60,10 @@ variable "encryptionsecretkey" {}
 variable "mysqlpassword" {}
 variable "mysqlusername" {}
 variable "sevnotifyapikey" {}
+
+# TF state backend
+
+variable "TF_resource_group_name" {}
+variable "TF_storage_account_name" {}
+variable "TF_container_name" {}
+variable "TF_key" {}

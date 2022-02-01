@@ -63,3 +63,10 @@ encryptionsecretkey = "encryptionsecretkey"
 mysqlpassword = "mysqlpassword"
 mysqlusername = "mysqlusername"
 sevnotifyapikey = "sevnotifyapikey"
+
+#TF state storage
+
+TF_resource_group_name  = "pinsapplicationstfRG"
+TF_storage_account_name = "pinsapplicationstg"
+TF_container_name       = "pinsapplicationblob"
+TF_key                  = "application.tfstate"
