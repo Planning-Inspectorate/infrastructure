@@ -12,14 +12,14 @@ resource "azurerm_public_ip" "vpnip2" {
   allocation_method   = "Dynamic"
 }
 
-resource "azurerm_local_network_gateway" "home" {
-  name                = "pins-uks-apps-nsip-localnetgw"
-  resource_group_name = azurerm_resource_group.AppSrvRG.name
-  location            = azurerm_resource_group.AppSrvRG.location
-  gateway_address     = var.gateway_address
+# resource "azurerm_local_network_gateway" "home" {
+#   name                = "pins-uks-apps-nsip-localnetgw"
+#   resource_group_name = azurerm_resource_group.AppSrvRG.name
+#   location            = azurerm_resource_group.AppSrvRG.location
+#   gateway_address     = var.gateway_address
   
-  depends_on = [azurerm_public_ip.vpnip1]
-}
+#   depends_on = [azurerm_public_ip.vpnip1]
+# }
 
 
 resource "azurerm_local_network_gateway" "appnsip" {
