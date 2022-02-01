@@ -51,3 +51,15 @@ API_XDT_MicrosoftApplicationInsights_Mode = "default"
 vpn_gw          = "app_dev_vpn_gw"
 gateway_address = "51.104.42.155"
 address_space   = "10.222.0.0/26"
+
+# secrets
+
+sitepipKey = "sitepipKey"
+vpnconnectionkey = "vpnconnectionkey"
+dockerusername = "dockerusername"
+dockeruserpass = "dockeruserpass"
+dockersessionkey = "dockersessionkey"
+encryptionsecretkey = "encryptionsecretkey"
+mysqlpassword = "mysqlpassword"
+mysqlusername = "mysqlusername"
+

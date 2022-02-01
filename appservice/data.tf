@@ -8,46 +8,46 @@ data "azurerm_key_vault" "KVault" {
 }
 
 data "azurerm_key_vault_secret" "site-pip" {
- name         = "sitepipKey"
+ name         = var.sitepipKey
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "VpnConnectionKey" {
- name         = "vpnconnectionkey"
+ name         = var.vpnconnectionkey
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "DockerUserName" {
- name         = "dockerusername"
+ name         = var.dockerusername
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "DockerUserPass" {
- name         = "dockeruserpass"
+ name         = var.dockeruserpass
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "DockerSessionKey" {
- name         = "dockersessionkey"
+ name         = var.dockersessionkey
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "EncryptionSecretKey" {
- name         = "encryptionsecretkey"
+ name         = var.encryptionsecretkey
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "MysqlPassword" {
- name         = "mysqlpassword"
+ name         = var.mysqlpassword
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "MysqlUserName" {
- name         = "mysqlusername"
+ name         = var.mysqlusername
  key_vault_id = data.azurerm_key_vault.KVault.id
 }
 
 data "azurerm_key_vault_secret" "SrvNotifyKey" {
- name         = "sevnotifyapikey"
+ name         = var.sevnotifyapikey
  key_vault_id = data.azurerm_key_vault.KVault.id
 }

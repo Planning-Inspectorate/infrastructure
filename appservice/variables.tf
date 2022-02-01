@@ -47,3 +47,16 @@ variable "TRIALIST_DATA_PATH"{}
 variable "API_WEBSITE_HTTPLOGGING_RETENTION_DAYS" {}
 variable "API_WEBSITES_ENABLE_APP_SERVICE_STORAGE" {}
 variable "API_XDT_MicrosoftApplicationInsights_Mode" {}
+
+
+# secrets
+
+variable "sitepipKey" {}
+variable "vpnconnectionkey" {}
+variable "dockerusername" {}
+variable "dockeruserpass" {}
+variable "dockersessionkey" {}
+variable "encryptionsecretkey" {}
+variable "mysqlpassword" {}
+variable "mysqlusername" {}
+variable "sevnotifyapikey" {}
