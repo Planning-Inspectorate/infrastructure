@@ -62,4 +62,4 @@ dockersessionkey = "dockersessionkey"
 encryptionsecretkey = "encryptionsecretkey"
 mysqlpassword = "mysqlpassword"
 mysqlusername = "mysqlusername"
-
+sevnotifyapikey = "sevnotifyapikey"
